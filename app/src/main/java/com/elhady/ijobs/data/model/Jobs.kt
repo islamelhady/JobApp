@@ -17,5 +17,6 @@ class Jobs(
     val location: String,
     val title: String,
     val description: String,
+    val how_to_apply: String,
     val company_logo: String
 ) : Parcelable
