@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.elhady.ijobs.ui.view.splash.SplashFragment"
+        android:label="SplashFragment" />
+    <fragment
+        android:id="@+id/listJobsFragment"
+        android:name="com.elhady.ijobs.ui.view.jobs.ListJobsFragment"
+        android:label="ListJobsFragment" />
+    <fragment
+        android:id="@+id/detailsJobsFragment"
+        android:name="com.elhady.ijobs.ui.view.details.DetailsJobsFragment"
+        android:label="fragment_details_jobs"
+        tools:layout="@layout/fragment_details_jobs" />
+</navigation>
