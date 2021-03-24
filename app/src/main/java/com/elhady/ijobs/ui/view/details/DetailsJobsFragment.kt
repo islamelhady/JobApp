@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.elhady.ijobs.R
+import com.elhady.ijobs.data.model.Jobs
+import com.elhady.ijobs.databinding.FragmentDetailsJobsBinding
 
 /**
  * Created by islam elhady on 22-Mar-21.
@@ -13,12 +15,16 @@ import com.elhady.ijobs.R
 class DetailsJobsFragment : Fragment() {
 
 
+    private lateinit var binding: FragmentDetailsJobsBinding
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_details_jobs, container, false)
+        binding = FragmentDetailsJobsBinding.inflate(inflater, container, false)
+        return binding.apply {
+            jobs = (requireArguments().get(getString(R.string.jobs_key))) as Jobs
+        }.root
     }
 
 }
