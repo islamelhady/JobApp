@@ -14,7 +14,7 @@ fun bindJobSrc(view: ImageView, companyLogo: String?) {
     if (!companyLogo.isNullOrEmpty()) {
         Glide.with(view.context)
             .load(companyLogo)
-            .error(ContextCompat.getDrawable(view.context, R.drawable.ic_twotone_work))
+            .error(ContextCompat.getDrawable(view.context, R.drawable.ic_business_center))
             .into(view)
     }
 }

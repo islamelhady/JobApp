@@ -11,73 +11,178 @@
     </data>
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/item_jobs_container"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="6dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="2dp"
-        app:cardUseCompatPadding="true">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="10dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="0dp"
+        app:strokeWidth="1dp">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/company_logo"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="15dp"
-                app:jobSrc="@{jobs.company_logo}" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="9dp"
+                android:padding="4dp">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/photoPreviewLayout"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="6dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="8dp"
+                    app:strokeWidth="0.5dp">
+
+                    <ImageView
+                        android:id="@+id/photoPreview"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/ic_business_center"
+                        android:contentDescription="@string/app_name"
+                        android:scaleType="centerInside"
+                        app:jobSrc="@{jobs.company_logo}" />
 
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="5dp"
-                android:layout_weight="1"
-                android:gravity="center_vertical"
-                android:orientation="vertical">
+                </com.google.android.material.card.MaterialCardView>
 
-                <TextView
-                    android:id="@+id/company_name"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:ellipsize="end"
-                    android:fontFamily="sans-serif-medium"
-                    android:lineSpacingExtra="0dp"
-                    android:maxLines="2"
-                    android:text="@{jobs.company}"
-                    android:textSize="18sp"
-                    tools:text="Mega trust" />
+                    android:layout_toEndOf="@id/photoPreviewLayout"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/job_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:ellipsize="end"
-                    android:fontFamily="sans-serif-thin"
-                    android:lineSpacingExtra="0dp"
-                    android:maxLines="2"
-                    android:text="@{jobs.title}"
-                    android:textSize="14sp"
-                    tools:text="Android Developer" />
+                    <TextView
+                        android:id="@+id/company_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginBottom="3dp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/bold"
+                        android:maxLines="2"
+                        android:text="@{jobs.title}"
+                        android:textColor="@color/gray_500"
+                        android:textSize="18sp"
+                        tools:text="Job Title" />
 
-            </LinearLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp">
 
-        </LinearLayout>
+                        <ImageView
+                            android:id="@+id/iconCompany"
+                            android:layout_width="15dp"
+                            android:layout_height="16dp"
+                            android:layout_marginEnd="5dp"
+                            android:contentDescription="@string/app_name"
+                            android:src="@drawable/ic_company"
+                            app:tint="@color/gray_300" />
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/iconCompany"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/book"
+                            android:singleLine="true"
+                            android:text="@{jobs.company}"
+                            android:textColor="@color/gray_300"
+                            android:textSize="12sp"
+                            tools:text="Company Name" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp">
+
+                        <ImageView
+                            android:id="@+id/iconLocation"
+                            android:layout_width="15dp"
+                            android:layout_height="16dp"
+                            android:layout_marginEnd="5dp"
+                            android:contentDescription="@string/app_name"
+                            android:src="@drawable/ic_location"
+                            app:tint="@color/gray_300" />
+
+
+                        <TextView
+                            android:id="@+id/job_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/iconLocation"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/book"
+                            android:singleLine="true"
+                            android:text="@{jobs.location}"
+                            android:textColor="@color/gray_300"
+                            android:textSize="12sp"
+                            tools:text="Location" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="4dp">
+
+                        <TextView
+                            android:id="@+id/jobType"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_job_type"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/book"
+                            android:paddingStart="6dp"
+                            android:paddingTop="2dp"
+                            android:paddingEnd="6dp"
+                            android:paddingBottom="2dp"
+                            android:singleLine="true"
+                            android:text="@{jobs.type}"
+                            android:textColor="@color/green_200"
+                            android:textSize="10sp"
+                            tools:text="Job Type" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/book"
+                            android:paddingStart="6dp"
+                            android:paddingTop="2dp"
+                            android:paddingEnd="6dp"
+                            android:paddingBottom="2dp"
+                            android:singleLine="true"
+                            android:text="@{jobs.created_at}"
+                            android:textColor="@color/gray_300"
+                            android:textSize="10sp"
+                            tools:text="Create at" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </RelativeLayout>
+
+
+        </RelativeLayout>
 
 
     </com.google.android.material.card.MaterialCardView>

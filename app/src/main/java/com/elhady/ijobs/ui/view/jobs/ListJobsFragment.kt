@@ -64,6 +64,7 @@ class ListJobsFragment : Fragment(), MainAdapter.OnItemJobClickListener {
                     Status.LOADING -> {
                         progressBar.visibility = View.VISIBLE
                         recyclerView.visibility = View.GONE
+
                     }
                 }
             }
