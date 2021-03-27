@@ -1,21 +1,23 @@
 package com.elhady.ijobs.ui.view.jobs
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.elhady.ijobs.R
 import com.elhady.ijobs.data.model.Jobs
 import com.elhady.ijobs.databinding.FragmentListJobsBinding
 import com.elhady.ijobs.ui.adapter.MainAdapter
 import com.elhady.ijobs.ui.viewmodel.MainViewModel
 import com.elhady.ijobs.ui.viewmodel.MainViewModel.Companion.createArguments
+import com.elhady.ijobs.utils.NetworkHelper
 import com.elhady.ijobs.utils.Status
 import kotlinx.android.synthetic.main.fragment_list_jobs.*
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -23,7 +25,8 @@ import org.koin.android.viewmodel.ext.android.viewModel
 /**
  * Created by islam elhady on 22-Mar-21.
  */
-class ListJobsFragment : Fragment(), MainAdapter.OnItemJobClickListener {
+class ListJobsFragment : Fragment(), MainAdapter.OnItemJobClickListener,
+    SwipeRefreshLayout.OnRefreshListener {
 
     private lateinit var binding: FragmentListJobsBinding
     private val mainViewModel: MainViewModel by viewModel()
@@ -53,16 +56,19 @@ class ListJobsFragment : Fragment(), MainAdapter.OnItemJobClickListener {
                 when (resource.status) {
                     Status.SUCCESS -> {
                         recyclerView.visibility = View.VISIBLE
-                        progressBar.visibility = View.GONE
+                        updateRefreshLayout(false)
+                        shimmer.stopShimmer()
+                        shimmer.visibility = View.GONE
                         resource.data?.let { jobs -> retrieveList(jobs) }
                     }
                     Status.ERROR -> {
                         recyclerView.visibility = View.VISIBLE
-                        progressBar.visibility = View.GONE
+                        updateRefreshLayout(false)
+                        shimmer.stopShimmer()
                         Toast.makeText(activity, it.message, Toast.LENGTH_LONG).show()
                     }
                     Status.LOADING -> {
-                        progressBar.visibility = View.VISIBLE
+                        updateRefreshLayout(true)
                         recyclerView.visibility = View.GONE
 
                     }
@@ -72,7 +78,7 @@ class ListJobsFragment : Fragment(), MainAdapter.OnItemJobClickListener {
     }
 
     private fun setupUI() {
-        recyclerView.layoutManager = LinearLayoutManager(activity)
+//        recyclerView.layoutManager = LinearLayoutManager(activity)
         adapter = MainAdapter(arrayListOf(), this)
         recyclerView.addItemDecoration(
             DividerItemDecoration(
@@ -95,4 +101,11 @@ class ListJobsFragment : Fragment(), MainAdapter.OnItemJobClickListener {
 
     }
 
+    override fun onRefresh() {
+            setupObservers()
+    }
+
+    private fun updateRefreshLayout(refresh: Boolean) {
+        swipeRefresh.isRefreshing = refresh
+    }
 }

@@ -15,7 +15,7 @@
     </style>
 
 
-    <style name="Theme.IJobs..NoActionBar" parent="Theme.IJobs">
+    <style name="Theme.IJobs.NoActionBar" parent="Theme.IJobs">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>

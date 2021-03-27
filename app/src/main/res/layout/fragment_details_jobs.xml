@@ -12,7 +12,6 @@
             type="com.elhady.ijobs.data.model.Jobs" />
     </data>
 
-
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -51,18 +50,10 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/bg_rounded_top">
 
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="5dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="8dp"
-                    android:background="@drawable/bg_strip_round"
-                    android:contentDescription="@string/app_name" />
-
                 <androidx.core.widget.NestedScrollView
                     android:id="@+id/scroll"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="15dp">
 
                     <LinearLayout
@@ -87,7 +78,8 @@
                                 android:layout_margin="5dp"
                                 android:contentDescription="@string/app_name"
                                 android:scaleType="centerInside"
-                                android:src="@drawable/ic_launcher_background" />
+                                app:jobSrc="@{jobs.company_logo}"
+                                tools:src="@drawable/ic_launcher_background" />
 
                         </com.google.android.material.card.MaterialCardView>
 
@@ -100,6 +92,7 @@
                             android:fontFamily="@font/bold"
                             android:gravity="center_horizontal"
                             android:text="@{jobs.title}"
+                            android:textColor="@color/gray_400"
                             android:textSize="18sp"
                             tools:text="Job Title" />
 
@@ -112,6 +105,7 @@
                             android:fontFamily="@font/book"
                             android:gravity="center_horizontal"
                             android:text="@{jobs.company}"
+                            android:textColor="@color/gray_400"
                             android:textSize="14sp"
                             tools:text="Company Name" />
 
@@ -168,7 +162,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="5dp"
                                         android:fontFamily="@font/book"
-                                        android:gravity="center_vertical"
+                                        android:layout_gravity="center_vertical"
                                         android:text="Job Description"
                                         android:textColor="@color/navy_100" />
 
@@ -223,7 +217,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="5dp"
                                         android:fontFamily="@font/book"
-                                        android:gravity="center_vertical"
+                                        android:layout_gravity="center_vertical"
                                         android:text="Company Information"
                                         android:textColor="@color/navy_100" />
 
@@ -234,12 +228,12 @@
                                     android:layout_height="wrap_content"
                                     android:orientation="vertical">
 
-                                    <RelativeLayout
+                                    <LinearLayout
                                         android:layout_width="match_parent"
-                                        android:layout_height="wrap_content">
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/iconCompany"
                                             android:layout_width="17dp"
                                             android:layout_height="17dp"
                                             android:src="@drawable/ic_company"
@@ -249,21 +243,22 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginStart="5dp"
-                                            android:layout_toEndOf="@id/iconCompany"
+                                            android:layout_gravity="center_vertical"
                                             android:text="@{jobs.company}"
+                                            android:textSize="10sp"
                                             tools:text="Company Information" />
-                                    </RelativeLayout>
+                                    </LinearLayout>
 
-                                    <RelativeLayout
+                                    <LinearLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
                                         android:layout_marginTop="3dp">
 
                                         <ImageView
                                             android:id="@+id/iconLocation"
                                             android:layout_width="17dp"
                                             android:layout_height="17dp"
-                                            android:layout_marginTop="2dp"
                                             android:src="@drawable/ic_location"
                                             app:tint="@color/gray_300" />
 
@@ -271,17 +266,18 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginStart="5dp"
-                                            android:layout_toEndOf="@id/iconLocation"
+                                            android:layout_gravity="center_vertical"
+                                            android:textSize="10sp"
                                             android:text="@{jobs.location}"
                                             tools:text="Company Location" />
-                                    </RelativeLayout>
+                                    </LinearLayout>
 
-                                    <RelativeLayout
+                                    <LinearLayout
                                         android:layout_width="match_parent"
-                                        android:layout_height="wrap_content">
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="3dp">
 
                                         <ImageView
-                                            android:id="@+id/iconWebsite"
                                             android:layout_width="17dp"
                                             android:layout_height="17dp"
                                             android:layout_marginTop="2dp"
@@ -292,10 +288,11 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginStart="5dp"
-                                            android:layout_toEndOf="@id/iconWebsite"
+                                            android:layout_gravity="center_vertical"
                                             android:text="@{jobs.url}"
+                                            android:textSize="10sp"
                                             tools:text="Website" />
-                                    </RelativeLayout>
+                                    </LinearLayout>
 
                                 </LinearLayout>
 
@@ -304,20 +301,13 @@
 
                         </com.google.android.material.card.MaterialCardView>
 
-                        <view
+                        <View
                             android:layout_width="match_parent"
                             android:layout_height="100dp" />
 
                     </LinearLayout>
 
                 </androidx.core.widget.NestedScrollView>
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="35dp"
-                    android:layout_marginTop="15dp"
-                    android:contentDescription="@string/app_name"
-                    android:src="@drawable/bg_shadow_up_to_down" />
 
             </RelativeLayout>
 
@@ -340,6 +330,8 @@
                 android:layout_height="50dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="6dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/bg_rounded_green_outline">
 
@@ -349,8 +341,6 @@
                     android:layout_height="25dp"
                     android:layout_centerInParent="true"
                     android:background="?attr/selectableItemBackgroundBorderless"
-                    android:clickable="true"
-                    android:focusable="true"
                     android:src="@drawable/ic_mark"
                     app:tint="@color/green_300" />
 
@@ -373,7 +363,6 @@
                     android:layout_centerInParent="true"
                     android:orientation="horizontal">
 
-
                     <ImageView
                         android:layout_width="21dp"
                         android:layout_height="21dp"
@@ -384,17 +373,15 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
+                        android:layout_gravity="center_vertical"
                         android:fontFamily="@font/bold"
                         android:text="How To Apply"
                         android:textColor="@color/white" />
                 </LinearLayout>
 
-
             </RelativeLayout>
 
-
         </LinearLayout>
-
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
