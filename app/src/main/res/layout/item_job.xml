@@ -65,7 +65,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/company_name"
+                        android:id="@+id/companyName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
@@ -123,7 +123,7 @@
 
 
                         <TextView
-                            android:id="@+id/job_title"
+                            android:id="@+id/jobTitle"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_toEndOf="@id/iconLocation"
