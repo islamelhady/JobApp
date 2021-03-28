@@ -2,4 +2,5 @@
     <string name="app_name">iJobs</string>
     <string name="welcome_to_ijobs">Welcome to iJobs</string>
     <string name="jobs_key">Jobs</string>
+    <string name="database">Jobs.db</string>
 </resources>
