@@ -9,7 +9,7 @@ import kotlinx.android.parcel.Parcelize
 /**
  * Created by islam elhady on 22-Mar-21.
  */
-@Entity
+//@Entity
 @Parcelize
 class Jobs(
     @PrimaryKey @NonNull val id: String,
