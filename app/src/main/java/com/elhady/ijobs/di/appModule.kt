@@ -1,6 +1,5 @@
 package com.elhady.ijobs.di
 
-import com.elhady.ijobs.data.remote.ApiHelper
 import com.elhady.ijobs.data.remote.ApiHelperImpl
 import com.elhady.ijobs.data.remote.ApiService
 import com.elhady.ijobs.utils.BASE_URL
@@ -42,8 +41,11 @@ val appModule = module {
         NetworkHelper(androidContext())
     }
 
-    single<ApiHelper> {
-        return@single ApiHelperImpl(get())
+//    single<ApiHelper> {
+//        return@single ApiHelperImpl(get())
+//    }
+    single {
+        ApiHelperImpl(get())
     }
 
 }

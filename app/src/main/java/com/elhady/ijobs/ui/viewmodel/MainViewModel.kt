@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.lifecycle.*
 import com.elhady.ijobs.data.model.Jobs
 import com.elhady.ijobs.data.repository.MainRepository
+import com.elhady.ijobs.di.repositoryModule
 import com.elhady.ijobs.utils.NetworkHelper
 import com.elhady.ijobs.utils.Resource
 import kotlinx.coroutines.launch
@@ -13,9 +14,10 @@ import java.io.IOException
  * Created by islam elhady on 23-Mar-21.
  */
 class MainViewModel(
-    private val mainRepository: MainRepository, private val networkHelper: NetworkHelper
+    private val mainRepository: MainRepository
 ) : ViewModel() {
 
+    val jobs = mainRepository.fetchJobsList()
 
 //    private val _jobs = MutableLiveData<Resource<List<Jobs>>>()
 //    val jobs: LiveData<Resource<List<Jobs>>>
@@ -23,11 +25,11 @@ class MainViewModel(
 
 //    val jobs: LiveData<List<Jobs>> = jobsDao.getAllJobs()
 
-    val jobs = mainRepository.jobsList
+//    val jobs = mainRepository.jobsList
 
-    init {
-        fetchJobs()
-    }
+//    init {
+//        fetchJobs()
+//    }
 
 //    private fun fetchJobs() {
 //        viewModelScope.launch {
@@ -42,11 +44,11 @@ class MainViewModel(
 //        }
 //    }
 
-    private fun fetchJobs() {
-        viewModelScope.launch {
-            mainRepository.refreshListJobs()
-        }
-    }
+//    private fun fetchJobs() {
+//        viewModelScope.launch {
+//            mainRepository.refreshListJobs()
+//        }
+//    }
 
     companion object {
         private const val JobsKey = "Jobs"

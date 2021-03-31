@@ -6,7 +6,6 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.elhady.ijobs.data.model.Jobs
-import okhttp3.Response
 
 /**
  * Created by islam elhady on 30-Mar-21.
@@ -16,9 +15,9 @@ import okhttp3.Response
 interface JobsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(jobs: Jobs)
+    suspend fun insertAll(jobs: List<Jobs>)
 
-    @Query("SELECT * FROM jobs_table")
+    @Query("SELECT * FROM ijobs_db")
     fun getAllJobs() : LiveData<List<Jobs>>
 
 }

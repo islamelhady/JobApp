@@ -9,7 +9,7 @@ import kotlinx.android.parcel.Parcelize
 /**
  * Created by islam elhady on 22-Mar-21.
  */
-@Entity(tableName = "jobs_table")
+@Entity(tableName = "ijobs_db")
 @Parcelize
 class Jobs(
     @PrimaryKey @NonNull val id: String,
