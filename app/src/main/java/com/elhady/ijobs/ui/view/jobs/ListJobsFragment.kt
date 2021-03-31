@@ -50,32 +50,41 @@ class ListJobsFragment : Fragment(), MainAdapter.OnItemJobClickListener,
         setupUI()
     }
 
-    private fun setupObservers() {
-        mainViewModel.jobs.observe(viewLifecycleOwner, Observer {
-            it?.let { resource ->
-                when (resource.status) {
-                    Status.SUCCESS -> {
-                        recyclerView.visibility = View.VISIBLE
-                        updateRefreshLayout(false)
-                        shimmer.stopShimmer()
-                        shimmer.visibility = View.GONE
-                        resource.data?.let { jobs -> retrieveList(jobs) }
-                    }
-                    Status.ERROR -> {
-                        recyclerView.visibility = View.VISIBLE
-                        updateRefreshLayout(false)
-                        shimmer.stopShimmer()
-                        Toast.makeText(activity, it.message, Toast.LENGTH_LONG).show()
-                    }
-                    Status.LOADING -> {
-                        updateRefreshLayout(true)
-                        recyclerView.visibility = View.GONE
+//    private fun setupObservers() {
+//        mainViewModel.jobs.observe(viewLifecycleOwner, Observer {
+//            it?.let { resource ->
+//                when (resource.status) {
+//                    Status.SUCCESS -> {
+//                        recyclerView.visibility = View.VISIBLE
+//                        updateRefreshLayout(false)
+//                        shimmer.stopShimmer()
+//                        shimmer.visibility = View.GONE
+//                        resource.data?.let { jobs -> retrieveList(jobs) }
+//                    }
+//                    Status.ERROR -> {
+//                        recyclerView.visibility = View.VISIBLE
+//                        updateRefreshLayout(false)
+//                        shimmer.stopShimmer()
+//                        Toast.makeText(activity, it.message, Toast.LENGTH_LONG).show()
+//                    }
+//                    Status.LOADING -> {
+//                        updateRefreshLayout(true)
+//                        recyclerView.visibility = View.GONE
+//
+//                    }
+//                }
+//            }
+//        })
+//    }
 
-                    }
-                }
-            }
-        })
-    }
+//    private fun setupObservers() {
+//        mainViewModel.jobs.observe(viewLifecycleOwner, Observer { jobs ->
+//
+//                retrieveList(jobs)
+//
+//
+//        })
+//    }
 
     private fun setupUI() {
 //        recyclerView.layoutManager = LinearLayoutManager(activity)
@@ -102,7 +111,7 @@ class ListJobsFragment : Fragment(), MainAdapter.OnItemJobClickListener,
     }
 
     override fun onRefresh() {
-            setupObservers()
+        setupObservers()
     }
 
     private fun updateRefreshLayout(refresh: Boolean) {
