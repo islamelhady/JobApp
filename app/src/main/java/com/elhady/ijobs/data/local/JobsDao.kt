@@ -17,7 +17,7 @@ interface JobsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(jobs: List<Jobs>)
 
-    @Query("SELECT * FROM ijobs_db")
+    @Query("SELECT * FROM Jobs")
     fun getAllJobs() : LiveData<List<Jobs>>
 
 }

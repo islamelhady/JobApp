@@ -1,5 +1,6 @@
 package com.elhady.ijobs.di
 
+import com.elhady.ijobs.data.remote.ApiHelper
 import com.elhady.ijobs.data.remote.ApiHelperImpl
 import com.elhady.ijobs.data.remote.ApiService
 import com.elhady.ijobs.utils.BASE_URL
@@ -37,9 +38,9 @@ val appModule = module {
         get<Retrofit>().create(ApiService::class.java)
     }
 
-    single {
-        NetworkHelper(androidContext())
-    }
+//    single {
+//        NetworkHelper(androidContext())
+//    }
 
 //    single<ApiHelper> {
 //        return@single ApiHelperImpl(get())

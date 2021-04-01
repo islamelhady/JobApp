@@ -1,6 +1,7 @@
 package com.elhady.ijobs.data.repository
 
 import com.elhady.ijobs.data.local.JobsDao
+import com.elhady.ijobs.data.model.Jobs
 import com.elhady.ijobs.data.remote.ApiHelperImpl
 import com.elhady.ijobs.utils.performGetOperation
 

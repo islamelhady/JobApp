@@ -9,10 +9,10 @@ import kotlinx.android.parcel.Parcelize
 /**
  * Created by islam elhady on 22-Mar-21.
  */
-@Entity(tableName = "ijobs_db")
+@Entity
 @Parcelize
 class Jobs(
-    @PrimaryKey @NonNull val id: String,
+    @PrimaryKey val id: String,
     val type: String,
     val url: String,
     val created_at: String,
