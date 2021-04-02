@@ -15,9 +15,9 @@ import com.elhady.ijobs.data.model.Jobs
 interface JobsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(jobs: List<Jobs>)
+    fun insertAll(jobs: List<Jobs>)
 
     @Query("SELECT * FROM Jobs")
-    fun getAllJobs() : LiveData<List<Jobs>>
+    fun getAllJobs() : List<Jobs>
 
 }

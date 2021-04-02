@@ -2,6 +2,7 @@ package com.elhady.ijobs.data.remote
 
 import com.elhady.ijobs.utils.Resource
 import retrofit2.Response
+import timber.log.Timber
 
 /**
  * Created by islam elhady on 22-Mar-21.
@@ -23,7 +24,7 @@ abstract class ApiHelper {
     }
 
     private fun <T> error(message: String): Resource<T> {
-//        Timber.d(message)
+        Timber.d(message)
         return Resource.error("Network call has failed for a following reason: $message")
     }
 

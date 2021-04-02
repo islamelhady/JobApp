@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -17,7 +16,6 @@ import com.elhady.ijobs.databinding.FragmentListJobsBinding
 import com.elhady.ijobs.ui.adapter.MainAdapter
 import com.elhady.ijobs.ui.viewmodel.MainViewModel
 import com.elhady.ijobs.ui.viewmodel.MainViewModel.Companion.createArguments
-import com.elhady.ijobs.utils.Status
 import kotlinx.android.synthetic.main.fragment_list_jobs.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -38,7 +36,10 @@ class ListJobsFragment : Fragment(), MainAdapter.OnItemJobClickListener,
     ): View? {
 
         binding = FragmentListJobsBinding.inflate(inflater, container, false)
-        return binding.root
+        return binding.apply {
+            viewModel = this@ListJobsFragment.mainViewModel
+            lifecycleOwner = this@ListJobsFragment
+        }.root
 
     }
 
@@ -47,31 +48,22 @@ class ListJobsFragment : Fragment(), MainAdapter.OnItemJobClickListener,
         super.onViewCreated(view, savedInstanceState)
         setupObservers()
         setupUI()
+
+//        showJobs()
     }
 
+//    private fun showJobs() {
+//        recyclerView.removeAllViewsInLayout()
+//        mainViewModel.pokemonListLiveData.value?.let {
+//            retrieveList(it)
+//        }
+////        bindAdapterPokemonsList(recyclerView, viewModel.pokemonListLiveData.value)
+//    }
+
     private fun setupObservers() {
-        mainViewModel.jobs.observe(viewLifecycleOwner, Observer {
+        mainViewModel.pokemonListLiveData.observe(viewLifecycleOwner, Observer {
 
-                when (it.status) {
-                    Status.SUCCESS -> {
-                        recyclerView.visibility = View.VISIBLE
-                        updateRefreshLayout(false)
-                        shimmer.stopShimmer()
-                        shimmer.visibility = View.GONE
-                        it.data?.let { jobs -> retrieveList(jobs) }
-                    }
-                    Status.ERROR -> {
-                        recyclerView.visibility = View.VISIBLE
-                        updateRefreshLayout(false)
-                        shimmer.stopShimmer()
-                        Toast.makeText(activity, it.message, Toast.LENGTH_LONG).show()
-
-                    }
-                    Status.LOADING -> {
-                        updateRefreshLayout(true)
-                        recyclerView.visibility = View.GONE
-                    }
-                }
+                retrieveList(it)
 
         })
     }
@@ -102,7 +94,7 @@ class ListJobsFragment : Fragment(), MainAdapter.OnItemJobClickListener,
     }
 
     override fun onRefresh() {
-        setupObservers()
+//        setupObservers()
     }
 
     private fun updateRefreshLayout(refresh: Boolean) {

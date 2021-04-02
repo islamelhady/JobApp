@@ -5,6 +5,11 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.elhady.ijobs.ui.viewmodel.MainViewModel" />
+
+
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout

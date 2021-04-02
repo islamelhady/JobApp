@@ -1,42 +1,49 @@
 package com.elhady.ijobs.data.repository
 
+import androidx.lifecycle.MutableLiveData
 import com.elhady.ijobs.data.local.JobsDao
 import com.elhady.ijobs.data.model.Jobs
 import com.elhady.ijobs.data.remote.ApiHelperImpl
-import com.elhady.ijobs.utils.performGetOperation
+import com.elhady.ijobs.data.remote.ApiResponse
+import com.elhady.ijobs.data.remote.message
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 /**
  * Created by islam elhady on 22-Mar-21.
  */
-class MainRepository(
+class MainRepository (
     private val remoteSource: ApiHelperImpl,
     private val localSource: JobsDao
 ) {
 
-    fun fetchJobsList() = performGetOperation(
-        databaseQuery = { localSource.getAllJobs() },
-        networkCall = { remoteSource.fetchJobsList() },
-        saveCallResult = {localSource.insertAll(it)}
-    )
-//    suspend fun getJobs() = apiHelper.fetchJobsList()
+    suspend fun loadPokemonList(error: (String) -> Unit) =
+        withContext(Dispatchers.IO) {
+            val liveData = MutableLiveData<List<Jobs>>()
+            var jobs = emptyList<Jobs>()
+            remoteSource.fecchJobsList { response ->
+                when (response) {
+                    is ApiResponse.Success -> {
+                        response.data?.let { data ->
+                            jobs = data.jobs
+                            localSource.insertAll(jobs)
+                            liveData.postValue(jobs)
+                        }
+                    }
+                    is ApiResponse.Failure.Error -> {
+                        error(response.message())
+                        jobs = getLocalJobs()
+                        liveData.postValue(jobs)
+                    }
+                    is ApiResponse.Failure.Exception -> {
+                        error(response.message())
+                        jobs = getLocalJobs()
+                        liveData.postValue(jobs)
+                    }
+                }
+            }
+            liveData.apply { postValue(jobs) }
+        }
 
-
-//    suspend fun refreshVideos() {
-//        withContext(Dispatchers.IO) {
-//            Timber.d("refresh videos is called")
-//            val playlist = DevByteNetwork.devbytes.getPlaylist()
-//            database.videoDao.insertAll(playlist.asDatabaseModel())
-//        }
-//
-//    }
-
-//    val jobsList: LiveData<List<Jobs>> = jobsDao.getAllJobs()
-//
-//    suspend fun refreshListJobs(){
-//        withContext(Dispatchers.IO){
-//            Log.d("repo","refresh videos is called")
-//            val listJobs = apiHelper.fetchJobsList()
-//            jobsDao.insertAll(listJobs)
-//        }
-//    }
+    private fun getLocalJobs() = localSource.getAllJobs()
 }
