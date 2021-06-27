@@ -6,8 +6,16 @@
     <data>
 
         <variable
-            name="jobs"
-            type="com.elhady.ijobs.data.model.Jobs" />
+            name="job"
+            type="com.elhady.ijobs.data.model.Job" />
+
+        <variable
+            name="jobclick"
+            type="com.elhady.ijobs.ui.adapter.JobClick" />
+
+        <variable
+            name="cardview"
+            type="androidx.cardview.widget.CardView" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -16,6 +24,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="10dp"
+        android:onClick="@{() -> jobclick.onClick(job,cardview)}"
         android:clickable="true"
         android:focusable="true"
         app:cardCornerRadius="10dp"
@@ -50,10 +59,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
-                        tools:src="@drawable/ic_business_center"
                         android:contentDescription="@string/app_name"
                         android:scaleType="centerInside"
-                        app:jobSrc="@{jobs.company_logo}" />
+                        app:jobSrc="@{job.company_logo}"
+                        tools:src="@drawable/ic_business_center" />
 
 
                 </com.google.android.material.card.MaterialCardView>
@@ -73,7 +82,7 @@
                         android:ellipsize="end"
                         android:fontFamily="@font/bold"
                         android:maxLines="2"
-                        android:text="@{jobs.title}"
+                        android:text="@{job.title}"
                         android:textColor="@color/gray_500"
                         android:textSize="18sp"
                         tools:text="Job Title" />
@@ -96,12 +105,12 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
                             android:layout_toEndOf="@id/iconCompany"
                             android:ellipsize="end"
                             android:fontFamily="@font/book"
                             android:singleLine="true"
-                            android:layout_gravity="center_vertical"
-                            android:text="@{jobs.company}"
+                            android:text="@{job.company}"
                             android:textColor="@color/gray_300"
                             android:textSize="12sp"
                             tools:text="Company Name" />
@@ -127,12 +136,12 @@
                             android:id="@+id/jobTitle"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
                             android:layout_toEndOf="@id/iconLocation"
                             android:ellipsize="end"
                             android:fontFamily="@font/book"
-                            android:layout_gravity="center_vertical"
                             android:singleLine="true"
-                            android:text="@{jobs.location}"
+                            android:text="@{job.location}"
                             android:textColor="@color/gray_300"
                             android:textSize="12sp"
                             tools:text="Location" />
@@ -157,7 +166,7 @@
                             android:paddingEnd="6dp"
                             android:paddingBottom="2dp"
                             android:singleLine="true"
-                            android:text="@{jobs.type}"
+                            android:text="@{job.type}"
                             android:textColor="@color/green_200"
                             android:textSize="10sp"
                             tools:text="Job Type" />
@@ -173,7 +182,7 @@
                             android:paddingEnd="6dp"
                             android:paddingBottom="2dp"
                             android:singleLine="true"
-                            android:text="@{jobs.created_at}"
+                            android:text="@{job.created_at}"
                             android:textColor="@color/gray_300"
                             android:textSize="10sp"
                             tools:text="Create at" />

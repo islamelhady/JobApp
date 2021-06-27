@@ -1,7 +1,7 @@
 package com.elhady.ijobs.di
 
-import com.elhady.ijobs.data.remote.ApiHelperImpl
 import com.elhady.ijobs.data.remote.ApiService
+import com.elhady.ijobs.data.repository.JobRepository
 import com.elhady.ijobs.utils.BASE_URL
 import com.elhady.ijobs.utils.timeoutConnect
 import com.elhady.ijobs.utils.timeoutRead
@@ -25,18 +25,19 @@ val appModule = module {
 
     single {
         Retrofit.Builder()
-            .client(get<OkHttpClient>())
+//            .client(get<OkHttpClient>())
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
+            .create(ApiService::class.java)
     }
 
-    single {
-        get<Retrofit>().create(ApiService::class.java)
-    }
-
-    single {
-        ApiHelperImpl(get())
-    }
+//    single {
+//        get<Retrofit>().create(ApiService::class.java)
+//    }
+//
+//    single {
+//        ApiHelperImpl(get())
+//    }
 
 }

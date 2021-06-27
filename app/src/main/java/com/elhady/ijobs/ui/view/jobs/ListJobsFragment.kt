@@ -13,20 +13,21 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.elhady.ijobs.R
 import com.elhady.ijobs.data.model.Jobs
 import com.elhady.ijobs.databinding.FragmentListJobsBinding
-import com.elhady.ijobs.ui.adapter.MainAdapter
+import com.elhady.ijobs.ui.adapter.JobAdapter
 import com.elhady.ijobs.ui.viewmodel.MainViewModel
 import com.elhady.ijobs.ui.viewmodel.MainViewModel.Companion.createArguments
 import kotlinx.android.synthetic.main.fragment_list_jobs.*
+import org.koin.android.viewmodel.ext.android.viewModel
 
 /**
  * Created by islam elhady on 22-Mar-21.
  */
-class ListJobsFragment : Fragment(), MainAdapter.OnItemJobClickListener,
+class ListJobsFragment : Fragment(), JobAdapter.OnItemJobClickListener,
     SwipeRefreshLayout.OnRefreshListener {
 
     private lateinit var binding: FragmentListJobsBinding
     private val mainViewModel: MainViewModel by viewModel()
-    private lateinit var adapter: MainAdapter
+    private lateinit var adapter: JobAdapter
 
 
     override fun onCreateView(
@@ -70,7 +71,7 @@ class ListJobsFragment : Fragment(), MainAdapter.OnItemJobClickListener,
 
     private fun setupUI() {
 //        recyclerView.layoutManager = LinearLayoutManager(activity)
-        adapter = MainAdapter(arrayListOf(), this)
+        adapter = JobAdapter(arrayListOf(), this)
         recyclerView.addItemDecoration(
             DividerItemDecoration(
                 recyclerView.context,

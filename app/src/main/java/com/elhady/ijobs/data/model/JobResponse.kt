@@ -1,17 +1,17 @@
 package com.elhady.ijobs.data.model
 
 import android.os.Parcelable
-import androidx.room.Entity
-import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize
 
 /**
  * Created by islam elhady on 22-Mar-21.
  */
-@Entity
+
+data class AllJobsResponse(val results: List<Job>)
+
 @Parcelize
-class Jobs(
-    @PrimaryKey val id: String,
+class Job(
+    val id: String,
     val type: String,
     val url: String,
     val created_at: String,
@@ -24,5 +24,3 @@ class Jobs(
     val company_logo: String,
     val is_mark: Int
 ) : Parcelable
-
-data class JobsResponse (val jobs: List<Jobs>)
