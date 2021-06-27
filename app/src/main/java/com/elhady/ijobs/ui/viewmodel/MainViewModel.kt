@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.lifecycle.*
 import com.elhady.ijobs.data.model.Jobs
 import com.elhady.ijobs.data.repository.MainRepository
-import com.elhady.ijobs.ui.view.jobs.LiveCoroutinesViewModel
 
 
 /**

@@ -17,7 +17,6 @@ import com.elhady.ijobs.ui.adapter.MainAdapter
 import com.elhady.ijobs.ui.viewmodel.MainViewModel
 import com.elhady.ijobs.ui.viewmodel.MainViewModel.Companion.createArguments
 import kotlinx.android.synthetic.main.fragment_list_jobs.*
-import org.koin.android.viewmodel.ext.android.viewModel
 
 /**
  * Created by islam elhady on 22-Mar-21.

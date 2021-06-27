@@ -1,12 +1,13 @@
 package com.elhady.ijobs.data.remote
 
-import com.elhady.ijobs.data.model.JobsResponse
+import com.elhady.ijobs.data.model.Jobs
+import retrofit2.Response
 
 /**
  * Created by islam elhady on 22-Mar-21.
  */
-class ApiHelperImpl(private val apiService: ApiService) {
-    fun fecchJobsList(onResult: (response: ApiResponse<JobsResponse>) -> Unit) {
-        this.apiService.fetchJobsList("api")
-    }
+class ApiHelperImpl(private val apiService: ApiService) : ApiHelper {
+
+    override suspend fun getJobs(): Response<List<Jobs>> = apiService.getJobs("api")
+
 }

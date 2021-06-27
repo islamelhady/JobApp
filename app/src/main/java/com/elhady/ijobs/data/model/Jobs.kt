@@ -24,3 +24,5 @@ class Jobs(
     val company_logo: String,
     val is_mark: Int
 ) : Parcelable
+
+data class JobsResponse (val jobs: List<Jobs>)
