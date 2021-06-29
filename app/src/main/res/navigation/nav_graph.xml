@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_splash"/>
     <fragment
         android:id="@+id/listJobsFragment"
-        android:name="com.elhady.ijobs.ui.view.jobs.ListJobsFragment"
+        android:name="com.elhady.ijobs.ui.view.home.ListJobsFragment"
         android:label="ListJobsFragment"
         tools:layout="@layout/fragment_list_jobs"/>
     <fragment

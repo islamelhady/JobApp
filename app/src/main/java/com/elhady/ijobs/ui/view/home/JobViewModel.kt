@@ -1,4 +1,4 @@
-package com.elhady.ijobs.ui.view.jobs
+package com.elhady.ijobs.ui.view.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
