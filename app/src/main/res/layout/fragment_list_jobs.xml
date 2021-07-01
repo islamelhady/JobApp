@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.elhady.ijobs.ui.viewmodel.MainViewModel" />
+            type="com.elhady.ijobs.ui.view.home.IjobViewModel" />
 
 
     </data>

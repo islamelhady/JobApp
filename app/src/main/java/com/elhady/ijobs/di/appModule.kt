@@ -1,7 +1,6 @@
 package com.elhady.ijobs.di
 
 import com.elhady.ijobs.data.remote.ApiService
-import com.elhady.ijobs.data.repository.JobRepository
 import com.elhady.ijobs.utils.BASE_URL
 import com.elhady.ijobs.utils.timeoutConnect
 import com.elhady.ijobs.utils.timeoutRead

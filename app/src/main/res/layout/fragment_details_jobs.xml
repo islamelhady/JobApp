@@ -8,8 +8,8 @@
         <import type="android.text.Html" />
 
         <variable
-            name="jobs"
-            type="com.elhady.ijobs.data.model.Jobs" />
+            name="ijobs"
+            type="com.elhady.ijobs.data.model.Ijob" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -78,7 +78,7 @@
                                 android:layout_margin="5dp"
                                 android:contentDescription="@string/app_name"
                                 android:scaleType="centerInside"
-                                app:jobSrc="@{jobs.company_logo}"
+                                app:jobSrc="@{ijobs.company_logo}"
                                 tools:src="@drawable/ic_launcher_background" />
 
                         </com.google.android.material.card.MaterialCardView>
@@ -91,7 +91,7 @@
                             android:layout_marginEnd="16dp"
                             android:fontFamily="@font/bold"
                             android:gravity="center_horizontal"
-                            android:text="@{jobs.title}"
+                            android:text="@{ijobs.title}"
                             android:textColor="@color/gray_400"
                             android:textSize="18sp"
                             tools:text="Job Title" />
@@ -104,7 +104,7 @@
                             android:layout_marginEnd="16dp"
                             android:fontFamily="@font/book"
                             android:gravity="center_horizontal"
-                            android:text="@{jobs.company}"
+                            android:text="@{ijobs.company}"
                             android:textColor="@color/gray_400"
                             android:textSize="14sp"
                             tools:text="Company Name" />
@@ -122,7 +122,7 @@
                             android:paddingTop="2dp"
                             android:paddingEnd="6dp"
                             android:paddingBottom="2dp"
-                            android:text="@{jobs.type}"
+                            android:text="@{ijobs.type}"
                             android:textColor="@color/green_300"
                             android:textSize="14sp"
                             tools:text="Job Type" />
@@ -173,7 +173,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/book"
                                     android:gravity="center_vertical"
-                                    android:text="@{Html.fromHtml(jobs.description)}"
+                                    android:text="@{Html.fromHtml(ijobs.description)}"
                                     android:textColor="@color/gray_400"
                                     android:textIsSelectable="true"
                                     tools:text="Job Description" />
@@ -244,7 +244,7 @@
                                             android:layout_height="wrap_content"
                                             android:layout_marginStart="5dp"
                                             android:layout_gravity="center_vertical"
-                                            android:text="@{jobs.company}"
+                                            android:text="@{ijobs.company}"
                                             android:textSize="10sp"
                                             tools:text="Company Information" />
                                     </LinearLayout>
@@ -268,7 +268,7 @@
                                             android:layout_marginStart="5dp"
                                             android:layout_gravity="center_vertical"
                                             android:textSize="10sp"
-                                            android:text="@{jobs.location}"
+                                            android:text="@{ijobs.location}"
                                             tools:text="Company Location" />
                                     </LinearLayout>
 
@@ -289,7 +289,7 @@
                                             android:layout_height="wrap_content"
                                             android:layout_marginStart="5dp"
                                             android:layout_gravity="center_vertical"
-                                            android:text="@{jobs.url}"
+                                            android:text="@{ijobs.url}"
                                             android:textSize="10sp"
                                             tools:text="Website" />
                                     </LinearLayout>

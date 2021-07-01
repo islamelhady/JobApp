@@ -5,8 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.elhady.ijobs.R
-import com.elhady.ijobs.data.model.Jobs
 import com.elhady.ijobs.databinding.FragmentDetailsJobsBinding
 
 /**
@@ -22,9 +20,7 @@ class DetailsJobsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentDetailsJobsBinding.inflate(inflater, container, false)
-        return binding.apply {
-            jobs = (requireArguments().get(getString(R.string.jobs_key))) as Jobs
-        }.root
+        return binding.root
     }
 
 }

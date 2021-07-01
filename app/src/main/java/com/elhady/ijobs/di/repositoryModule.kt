@@ -1,6 +1,6 @@
 package com.elhady.ijobs.di
 
-import com.elhady.ijobs.data.repository.JobRepository
+import com.elhady.ijobs.data.repository.IjobRepository
 import org.koin.dsl.module
 
 /**
@@ -8,6 +8,6 @@ import org.koin.dsl.module
  */
 val repositoryModule = module {
     single {
-        JobRepository(get())
+        IjobRepository(get())
     }
 }

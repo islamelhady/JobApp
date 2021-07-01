@@ -14,10 +14,18 @@
         android:id="@+id/listJobsFragment"
         android:name="com.elhady.ijobs.ui.view.home.ListJobsFragment"
         android:label="ListJobsFragment"
-        tools:layout="@layout/fragment_list_jobs"/>
+        tools:layout="@layout/fragment_list_jobs">
+        <action
+            android:id="@+id/action_listJobsFragment_to_detailsJobsFragment"
+            app:destination="@id/detailsJobsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/detailsJobsFragment"
         android:name="com.elhady.ijobs.ui.view.details.DetailsJobsFragment"
         android:label="fragment_details_jobs"
-        tools:layout="@layout/fragment_details_jobs" />
+        tools:layout="@layout/fragment_details_jobs" >
+        <argument
+            android:name="ijob"
+            app:argType="com.elhady.ijobs.data.model.Ijob" />
+    </fragment>
 </navigation>

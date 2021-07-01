@@ -6,21 +6,21 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.elhady.ijobs.data.model.Job
+import com.elhady.ijobs.data.model.Ijob
 import com.elhady.ijobs.databinding.ItemJobBinding
 
 /**
  * Created by islam elhady on 22-Mar-21.
  */
-class JobAdapter(callback: JobClick) : ListAdapter<Job, JobAdapter.JobViewHolder>(DiffCallback) {
+class IjobAdapter() : ListAdapter<Ijob, IjobAdapter.JobViewHolder>(DiffCallback) {
 
 
-    companion object DiffCallback : DiffUtil.ItemCallback<Job>() {
-        override fun areItemsTheSame(oldItem: Job, newItem: Job): Boolean {
+    companion object DiffCallback : DiffUtil.ItemCallback<Ijob>() {
+        override fun areItemsTheSame(oldItem: Ijob, newItem: Ijob): Boolean {
             return oldItem == newItem
         }
 
-        override fun areContentsTheSame(oldItem: Job, newItem: Job): Boolean {
+        override fun areContentsTheSame(oldItem: Ijob, newItem: Ijob): Boolean {
             return newItem.id == oldItem.id
         }
     }
@@ -29,11 +29,11 @@ class JobAdapter(callback: JobClick) : ListAdapter<Job, JobAdapter.JobViewHolder
     class JobViewHolder(val viewDataBinding: ItemJobBinding) :
         RecyclerView.ViewHolder(viewDataBinding.root) {
 
-        fun bind(listener: JobClick, job: Job){
-            viewDataBinding.job = job
-            viewDataBinding.cardview = viewDataBinding.itemContainer
-            viewDataBinding.cardview?.transitionName = job.company
-            viewDataBinding.jobclick = listener
+        fun bind(ijob: Ijob){
+            viewDataBinding.job = ijob
+//            viewDataBinding.cardview = viewDataBinding.itemContainer
+//            viewDataBinding.cardview?.transitionName = job.company
+//            viewDataBinding.jobclick = listener
             viewDataBinding.executePendingBindings()
         }
 
@@ -53,11 +53,11 @@ class JobAdapter(callback: JobClick) : ListAdapter<Job, JobAdapter.JobViewHolder
 
     override fun onBindViewHolder(holder: JobViewHolder, position: Int) {
         holder.viewDataBinding.also {
-            holder.bind(callback, getItem(position))
+            holder.bind( getItem(position))
         }
     }
 }
 
-class JobClick(val block: (Job, View) -> Unit) {
-    fun onClick(job: Job, view: View) = block(job, view)
+class JobClick(val block: (Ijob, View) -> Unit) {
+    fun onClick(ijob: Ijob, view: View) = block(ijob, view)
 }

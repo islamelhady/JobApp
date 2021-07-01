@@ -1,6 +1,6 @@
 package com.elhady.ijobs.data.repository
 
-import com.elhady.ijobs.data.model.AllJobsResponse
+import com.elhady.ijobs.data.model.AllIjobsResponse
 import com.elhady.ijobs.data.remote.ApiService
 import com.elhady.ijobs.utils.State
 import kotlinx.coroutines.Dispatchers
@@ -11,11 +11,11 @@ import retrofit2.Response
 /**
  * Created by islam elhady on 22-Mar-21.
  */
-class JobRepository(private val apiService: ApiService) {
+class IjobRepository(private val apiService: ApiService) {
 
-    fun getAllJobs(): Flow<State<AllJobsResponse>> {
-        return object : NetworkBoundRepository<AllJobsResponse>() {
-            override suspend fun fetchFromRemote(): Response<AllJobsResponse> =
+    fun getAllJobs(): Flow<State<AllIjobsResponse>> {
+        return object : NetworkBoundRepository<AllIjobsResponse>() {
+            override suspend fun fetchFromRemote(): Response<AllIjobsResponse> =
                 apiService.getAllJobs("api")
         }.asFlow().flowOn(Dispatchers.IO)
     }

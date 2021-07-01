@@ -7,10 +7,10 @@ import kotlinx.android.parcel.Parcelize
  * Created by islam elhady on 22-Mar-21.
  */
 
-data class AllJobsResponse(val results: List<Job>)
+data class AllIjobsResponse(val results: List<Ijob>)
 
 @Parcelize
-class Job(
+class Ijob(
     val id: String,
     val type: String,
     val url: String,
