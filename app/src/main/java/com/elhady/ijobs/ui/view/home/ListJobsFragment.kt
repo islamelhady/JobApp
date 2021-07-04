@@ -7,10 +7,17 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.NavDirections
+import androidx.navigation.fragment.FragmentNavigator
+import androidx.navigation.fragment.FragmentNavigatorExtras
+import androidx.navigation.fragment.findNavController
 import com.elhady.ijobs.R
 import com.elhady.ijobs.databinding.FragmentListJobsBinding
 import com.elhady.ijobs.ui.adapter.IjobAdapter
+import com.elhady.ijobs.ui.adapter.JobClick
 import com.elhady.ijobs.utils.State
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.InternalCoroutinesApi
 import org.koin.android.viewmodel.ext.android.viewModel
 
 /**
@@ -52,13 +59,18 @@ class ListJobsFragment : Fragment() {
         }
     }
 
+    private fun navigate(toDetailsFragment: NavDirections, extraInfoForSharedElement: FragmentNavigator.Extras) = with(findNavController()) {
+        currentDestination?.getAction(toDetailsFragment.actionId)
+            ?.let { navigate(toDetailsFragment, extraInfoForSharedElement) }
+    }
+
     private fun setupObservers() {
         viewModel.jobLiveData.observe(viewLifecycleOwner, Observer { state ->
             when (state) {
                 is State.Loading -> binding.swipeRefresh.isRefreshing = true
                 is State.Success -> {
-                    if (state.data.results?.isNotEmpty()!!)
-                        adapter?.submitList(state.data.results)
+                    if (state.data.jobs?.isNotEmpty()!!)
+                        adapter?.submitList(state.data.jobs)
                     else
                         Toast.makeText(activity, "NO DATA", Toast.LENGTH_SHORT).show()
                     binding.swipeRefresh.isRefreshing = false

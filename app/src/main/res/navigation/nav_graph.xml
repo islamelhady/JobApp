@@ -9,7 +9,11 @@
         android:id="@+id/splashFragment"
         android:name="com.elhady.ijobs.ui.view.splash.SplashFragment"
         android:label="SplashFragment"
-        tools:layout="@layout/fragment_splash"/>
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_splashFragment_to_listJobsFragment"
+            app:destination="@id/listJobsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/listJobsFragment"
         android:name="com.elhady.ijobs.ui.view.home.ListJobsFragment"
@@ -27,5 +31,8 @@
         <argument
             android:name="ijob"
             app:argType="com.elhady.ijobs.data.model.Ijob" />
+        <argument
+            android:name="picture"
+            app:argType="string" />
     </fragment>
 </navigation>

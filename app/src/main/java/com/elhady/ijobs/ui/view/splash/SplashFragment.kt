@@ -7,9 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.elhady.ijobs.R
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 /**
  * Created by islam elhady on 22-Mar-21.
@@ -28,7 +26,7 @@ class SplashFragment : Fragment() {
         GlobalScope.launch {
             delay(3000L)
             findNavController().navigate(
-                R.id.listJobsFragment
+                R.id.action_splashFragment_to_listJobsFragment
             )
         }
     }

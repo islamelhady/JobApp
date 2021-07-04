@@ -8,17 +8,19 @@
         <variable
             name="job"
             type="com.elhady.ijobs.data.model.Ijob" />
-
+        
         <variable
             name="jobclick"
             type="com.elhady.ijobs.ui.adapter.JobClick" />
-
+        
         <variable
             name="cardview"
-            type="androidx.cardview.widget.CardView" />
+            type="com.google.android.material.card.MaterialCardView" />
+
     </data>
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/item_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -61,7 +63,7 @@
                         android:layout_margin="5dp"
                         android:contentDescription="@string/app_name"
                         android:scaleType="centerInside"
-                        app:jobSrc="@{job.company_logo}"
+                        app:jobSrc="@{job.company_logo_url}"
                         tools:src="@drawable/ic_business_center" />
 
 
@@ -110,7 +112,7 @@
                             android:ellipsize="end"
                             android:fontFamily="@font/book"
                             android:singleLine="true"
-                            android:text="@{job.company}"
+                            android:text="@{job.company_name}"
                             android:textColor="@color/gray_300"
                             android:textSize="12sp"
                             tools:text="Company Name" />
@@ -141,7 +143,7 @@
                             android:ellipsize="end"
                             android:fontFamily="@font/book"
                             android:singleLine="true"
-                            android:text="@{job.location}"
+                            android:text="@{job.candidate_required_location}"
                             android:textColor="@color/gray_300"
                             android:textSize="12sp"
                             tools:text="Location" />
@@ -166,7 +168,7 @@
                             android:paddingEnd="6dp"
                             android:paddingBottom="2dp"
                             android:singleLine="true"
-                            android:text="@{job.type}"
+                            android:text="@{job.job_type}"
                             android:textColor="@color/green_200"
                             android:textSize="10sp"
                             tools:text="Job Type" />
@@ -182,7 +184,7 @@
                             android:paddingEnd="6dp"
                             android:paddingBottom="2dp"
                             android:singleLine="true"
-                            android:text="@{job.created_at}"
+                            android:text="@{job.publication_date}"
                             android:textColor="@color/gray_300"
                             android:textSize="10sp"
                             tools:text="Create at" />

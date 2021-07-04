@@ -2,8 +2,9 @@ package com.elhady.ijobs
 
 import android.app.Application
 import com.elhady.ijobs.di.appModule
-import com.elhady.ijobs.di.repositoryModule
 import com.elhady.ijobs.di.viewModelModule
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.InternalCoroutinesApi
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -15,9 +16,8 @@ class App: Application(){
         super.onCreate()
 
         startKoin {
-            androidContext(this@App)
+            androidContext(applicationContext)
             modules(appModule)
-            modules(repositoryModule)
             modules(viewModelModule)
         }
     }

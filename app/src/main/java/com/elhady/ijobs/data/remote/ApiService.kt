@@ -9,6 +9,6 @@ import retrofit2.http.Query
  * Created by islam elhady on 22-Mar-21.
  */
 interface ApiService {
-    @GET("positions.json")
-    suspend fun getAllJobs(@Query("description") api : String): Response<AllIjobsResponse>
+    @GET("remote-jobs")
+    suspend fun getAllJobs(): Response<AllIjobsResponse>
 }

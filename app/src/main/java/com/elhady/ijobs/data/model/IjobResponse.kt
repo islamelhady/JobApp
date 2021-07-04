@@ -7,20 +7,20 @@ import kotlinx.android.parcel.Parcelize
  * Created by islam elhady on 22-Mar-21.
  */
 
-data class AllIjobsResponse(val results: List<Ijob>)
+data class AllIjobsResponse(val jobs: List<Ijob>?)
 
 @Parcelize
 class Ijob(
-    val id: String,
-    val type: String,
-    val url: String,
-    val created_at: String,
-    val company: String,
-    val company_url: String,
-    val location: String,
-    val title: String,
-    val description: String,
-    val how_to_apply: String,
-    val company_logo: String,
-    val is_mark: Int
+    val candidate_required_location: String?,
+    val category: String?,
+    val company_logo_url: String?,
+    val company_name: String?,
+    val description: String?,
+    val id: Int?,
+    val job_type: String?,
+    val publication_date: String?,
+    val salary: String,
+    val tags: List<String>?,
+    val title: String?,
+    val url: String?
 ) : Parcelable
