@@ -12,7 +12,8 @@ import com.elhady.ijobs.databinding.ItemJobBinding
 /**
  * Created by islam elhady on 22-Mar-21.
  */
-class IjobAdapter : ListAdapter<Job, IjobAdapter.JobViewHolder>(DiffCallback) {
+class IjobAdapter(val callback: JobClick) :
+    ListAdapter<Job, IjobAdapter.JobViewHolder>(DiffCallback) {
 
 
     companion object DiffCallback : DiffUtil.ItemCallback<Job>() {
@@ -29,11 +30,11 @@ class IjobAdapter : ListAdapter<Job, IjobAdapter.JobViewHolder>(DiffCallback) {
     class JobViewHolder(val viewDataBinding: ItemJobBinding) :
         RecyclerView.ViewHolder(viewDataBinding.root) {
 
-        fun bind(job: Job){
+        fun bind(listener: JobClick, job: Job) {
             viewDataBinding.job = job
-//            viewDataBinding.cardview = viewDataBinding.itemContainer
+            viewDataBinding.cardview = viewDataBinding.itemContainer
 //            viewDataBinding.cardview?.transitionName = job.company
-//            viewDataBinding.jobclick = listener
+            viewDataBinding.jobclick = listener
             viewDataBinding.executePendingBindings()
         }
 
@@ -53,7 +54,7 @@ class IjobAdapter : ListAdapter<Job, IjobAdapter.JobViewHolder>(DiffCallback) {
 
     override fun onBindViewHolder(holder: JobViewHolder, position: Int) {
         holder.viewDataBinding.also {
-            holder.bind( getItem(position))
+            holder.bind(callback, getItem(position))
         }
     }
 }

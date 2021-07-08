@@ -14,6 +14,7 @@ import androidx.navigation.fragment.findNavController
 import com.elhady.ijobs.R
 import com.elhady.ijobs.databinding.FragmentListJobsBinding
 import com.elhady.ijobs.ui.adapter.IjobAdapter
+import com.elhady.ijobs.ui.adapter.JobClick
 import com.elhady.ijobs.utils.State
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -46,7 +47,9 @@ class ListJobsFragment : Fragment() {
 
 
     private fun setupAdapter() {
-        adapter = IjobAdapter()
+        adapter = IjobAdapter(JobClick{it,view ->
+            Toast.makeText(context, "$view" + "item$it", Toast.LENGTH_SHORT).show()
+        })
         // Sets the adapter of the RecyclerView
         binding.recyclerView.adapter = adapter
         postponeEnterTransition()
