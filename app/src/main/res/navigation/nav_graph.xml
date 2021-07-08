@@ -29,10 +29,8 @@
         android:label="fragment_details_jobs"
         tools:layout="@layout/fragment_details_jobs" >
         <argument
-            android:name="ijob"
-            app:argType="com.elhady.ijobs.data.model.Ijob" />
-        <argument
-            android:name="picture"
-            app:argType="string" />
+            android:name="job"
+            app:argType="com.elhady.ijobs.data.model.Job" />
+
     </fragment>
 </navigation>

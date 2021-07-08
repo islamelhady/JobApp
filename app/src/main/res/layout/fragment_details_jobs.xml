@@ -9,7 +9,7 @@
 
         <variable
             name="ijobs"
-            type="com.elhady.ijobs.data.model.Ijob" />
+            type="com.elhady.ijobs.data.model.Job" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout

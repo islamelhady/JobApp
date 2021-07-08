@@ -1,9 +1,9 @@
 package com.elhady.ijobs.ui.binding
 
 import android.widget.ImageView
-import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.elhady.ijobs.R
 
 /**
@@ -11,10 +11,12 @@ import com.elhady.ijobs.R
  */
 @BindingAdapter("jobSrc")
 fun bindJobSrc(view: ImageView, companyLogo: String?) {
-    if (!companyLogo.isNullOrEmpty()) {
+    if(!companyLogo.isNullOrEmpty())
         Glide.with(view.context)
             .load(companyLogo)
-            .error(ContextCompat.getDrawable(view.context, R.drawable.ic_business_center))
+        .apply(
+            RequestOptions()
+            .placeholder(R.drawable.ic_business_center)
+            .error(R.drawable.ic_work))
             .into(view)
-    }
 }

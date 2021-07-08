@@ -5,5 +5,4 @@ package com.elhady.ijobs.utils
  */
 //const val BASE_URL = "https://jobs.github.com/"
 const val BASE_URL = "https://remotive.io/api/"
-const val timeoutRead = 30
-const val timeoutConnect = 30
+// https://remotive.io/api/remote-jobs?category=software-dev

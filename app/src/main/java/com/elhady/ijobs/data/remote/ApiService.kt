@@ -1,6 +1,6 @@
 package com.elhady.ijobs.data.remote
 
-import com.elhady.ijobs.data.model.AllIjobsResponse
+import com.elhady.ijobs.data.model.RemoteJob
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -10,5 +10,6 @@ import retrofit2.http.Query
  */
 interface ApiService {
     @GET("remote-jobs")
-    suspend fun getAllJobs(): Response<AllIjobsResponse>
+    suspend fun getAllJobs(@Query("limit") limit: String): Response<RemoteJob>
+
 }

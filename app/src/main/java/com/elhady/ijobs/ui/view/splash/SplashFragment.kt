@@ -24,7 +24,7 @@ class SplashFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         GlobalScope.launch {
-            delay(3000L)
+            delay(2000L)
             findNavController().navigate(
                 R.id.action_splashFragment_to_listJobsFragment
             )

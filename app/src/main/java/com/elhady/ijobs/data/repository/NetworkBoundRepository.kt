@@ -20,7 +20,10 @@ abstract class NetworkBoundRepository<T> {
             val response = apiResponse.body()
 
             if (apiResponse.isSuccessful && response != null)
+                emit(State.success(response))
+            else
                 emit(State.error(apiResponse.message()))
+
         } catch (e: Exception) {
             emit(State.error(e.message.toString()))
         }
