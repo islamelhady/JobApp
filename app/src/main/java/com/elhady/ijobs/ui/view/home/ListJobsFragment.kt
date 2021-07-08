@@ -47,8 +47,11 @@ class ListJobsFragment : Fragment() {
 
 
     private fun setupAdapter() {
-        adapter = IjobAdapter(JobClick{it,view ->
-            Toast.makeText(context, "$view" + "item$it", Toast.LENGTH_SHORT).show()
+        adapter = IjobAdapter(JobClick{it ->
+            val toDetailsFragment = it.let {
+                ListJobsFragmentDirections.actionListJobsFragmentToDetailsJobsFragment(it)
+            }
+            findNavController().navigate(toDetailsFragment)
         })
         // Sets the adapter of the RecyclerView
         binding.recyclerView.adapter = adapter

@@ -1,7 +1,6 @@
 package com.elhady.ijobs.ui.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -33,7 +32,6 @@ class IjobAdapter(val callback: JobClick) :
         fun bind(listener: JobClick, job: Job) {
             viewDataBinding.job = job
             viewDataBinding.cardview = viewDataBinding.itemContainer
-//            viewDataBinding.cardview?.transitionName = job.company
             viewDataBinding.jobclick = listener
             viewDataBinding.executePendingBindings()
         }
@@ -59,6 +57,6 @@ class IjobAdapter(val callback: JobClick) :
     }
 }
 
-class JobClick(val block: (Job, View) -> Unit) {
-    fun onClick(job: Job, view: View) = block(job, view)
+class JobClick(val block: (Job) -> Unit) {
+    fun onClick(job: Job) = block(job)
 }
