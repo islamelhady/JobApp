@@ -45,6 +45,12 @@ class ListJobsFragment : Fragment() {
 
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+       binding.listJobs = this
+    }
+
 
     private fun setupAdapter() {
         adapter = IjobAdapter(JobClick{it ->
@@ -81,6 +87,13 @@ class ListJobsFragment : Fragment() {
             }
         })
 
+    }
+
+    /**
+     * Navigate to the search screen to search the jobs .
+     */
+    fun goToSearchJobs(){
+        findNavController().navigate(R.id.action_listJobsFragment_to_searchFragment)
     }
 
     override fun onResume() {

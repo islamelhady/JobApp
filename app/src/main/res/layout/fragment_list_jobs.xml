@@ -8,6 +8,9 @@
         <variable
             name="viewModel"
             type="com.elhady.ijobs.ui.view.home.IjobViewModel" />
+        <variable
+            name="listJobs"
+            type="com.elhady.ijobs.ui.view.home.ListJobsFragment" />
 
 
     </data>
@@ -110,7 +113,8 @@
 
                             <RelativeLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="60dp">
+                                android:layout_height="60dp"
+                                android:onClick="@{() -> listJobs.goToSearchJobs()}">
 
                                 <TextView
                                     android:layout_width="match_parent"

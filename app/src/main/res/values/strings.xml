@@ -2,4 +2,6 @@
     <string name="app_name">iJobs</string>
     <string name="welcome_to_ijobs">Welcome to iJobs</string>
     <string name="database">Jobs.db</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
