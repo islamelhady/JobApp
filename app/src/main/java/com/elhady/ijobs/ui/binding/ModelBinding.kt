@@ -1,6 +1,10 @@
 package com.elhady.ijobs.ui.binding
 
+import android.text.method.LinkMovementMethod
 import android.widget.ImageView
+import android.widget.TextView
+import androidx.core.text.HtmlCompat
+import androidx.core.text.HtmlCompat.FROM_HTML_MODE_COMPACT
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -19,4 +23,14 @@ fun bindJobSrc(view: ImageView, companyLogo: String?) {
             .placeholder(R.drawable.ic_business_center)
             .error(R.drawable.ic_work))
             .into(view)
+}
+
+@BindingAdapter("descriptionHtml")
+fun bindDescriptionHtml(view: TextView, description: String?) {
+    if (description != null) {
+        view.text = HtmlCompat.fromHtml(description, FROM_HTML_MODE_COMPACT)
+        view.movementMethod = LinkMovementMethod.getInstance()
+    } else {
+        view.text = ""
+    }
 }

@@ -5,8 +5,6 @@
 
     <data>
 
-        <import type="android.text.Html" />
-
         <variable
             name="ijobs"
             type="com.elhady.ijobs.data.model.Job" />
@@ -173,7 +171,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/book"
                                     android:gravity="center_vertical"
-                                    android:text="@{Html.fromHtml(ijobs.description)}"
+                                    app:descriptionHtml="@{ijobs.description}"
                                     android:textColor="@color/gray_400"
                                     android:textIsSelectable="true"
                                     tools:text="Job Description" />
