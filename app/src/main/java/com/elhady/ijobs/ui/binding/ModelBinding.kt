@@ -34,3 +34,16 @@ fun bindDescriptionHtml(view: TextView, description: String?) {
         view.text = ""
     }
 }
+
+//@BindingAdapter("query")
+//fun setQuery(searchView: SearchView, queryText: String) {
+////        searchView.setQuery(queryText, false)
+//
+//}
+//
+//@BindingAdapter("queryTextListener")
+//fun setOnQueryTextListener(searchView: SearchView, listener: SearchView.OnQueryTextListener, queryText: String) {
+//    searchView.isSubmitButtonEnabled
+//    searchView.setQuery(queryText, false)
+//    searchView.setOnQueryTextListener(listener)
+//}

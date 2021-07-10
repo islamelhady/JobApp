@@ -1,72 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:clickable="false"
-    android:focusableInTouchMode="true"
-    android:background="@color/blue_200"
-    android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        app:popupTheme="@style/Theme.IJobs.Toolbar"
-        app:elevation="0dp">
+    <data>
+        <variable
+            name="query"
+            type="String" />
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:theme="@style/Theme.IJobs.Toolbar"
-            app:contentInsetStartWithNavigation="0dp"
-            app:layout_scrollFlags="scroll|enterAlways"
-            app:popupTheme="@style/Theme.IJobs.Toolbar"
-            app:titleTextColor="@color/white">
+        <variable
+            name="searchQuery"
+            type="com.elhady.ijobs.ui.view.search.SearchFragment" />
 
-            <androidx.appcompat.widget.SearchView
-                android:id="@+id/searchView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:queryHint="@string/search_job"
-                app:iconifiedByDefault="false"
-                app:searchHintIcon="@null"
-                app:searchIcon="@null" />
-
-        </androidx.appcompat.widget.Toolbar>
-
-    </com.google.android.material.appbar.AppBarLayout>
+        <variable
+            name="viewmodel"
+            type="com.elhady.ijobs.ui.view.search.SearchViewModel" />
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/toolbar"
-        android:background="@drawable/bg_rounded_top"
+        android:clickable="false"
+        android:focusableInTouchMode="true"
+        android:background="@color/blue_200"
         android:orientation="vertical">
 
-        <ProgressBar
-            android:id="@+id/searchLoader"
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="5dp"
-            android:indeterminate="true" />
+            android:layout_height="?attr/actionBarSize"
+            app:popupTheme="@style/Theme.IJobs.Toolbar"
+            app:elevation="0dp">
 
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:theme="@style/Theme.IJobs.Toolbar"
+                app:contentInsetStartWithNavigation="0dp"
+                app:layout_scrollFlags="scroll|enterAlways"
+                app:popupTheme="@style/Theme.IJobs.Toolbar"
+                app:titleTextColor="@color/white">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/searchList"
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/searchView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:queryHint="@string/search_job"
+                    app:iconifiedByDefault="false"
+                    app:searchHintIcon="@null"
+                    app:searchIcon="@null" />
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            android:clipToPadding="false"
-            android:overScrollMode="never"
-            tools:layout="@layout/item_job" />
+            android:layout_below="@id/toolbar"
+            android:background="@drawable/bg_rounded_top"
+            android:orientation="vertical">
+
+            <ProgressBar
+                android:id="@+id/searchLoader"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="5dp"
+                android:visibility="gone"
+                android:indeterminate="true" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/searchList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                android:clipToPadding="false"
+                android:overScrollMode="never"
+                tools:layout="@layout/item_job" />
+
+        </LinearLayout>
 
     </LinearLayout>
-
-</LinearLayout>
+</layout>

@@ -40,5 +40,10 @@
         android:id="@+id/searchFragment"
         android:name="com.elhady.ijobs.ui.view.search.SearchFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+
+        <argument
+            android:name="querySearch"
+            app:argType="string"/>
+    </fragment>
 </navigation>
