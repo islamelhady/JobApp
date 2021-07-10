@@ -1,8 +1,8 @@
 package com.elhady.ijobs.di
 
 import com.elhady.ijobs.data.remote.ApiService
+import com.elhady.ijobs.data.remote.ApiService.Companion.BASE_URL
 import com.elhady.ijobs.data.repository.IjobRepository
-import com.elhady.ijobs.utils.BASE_URL
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import org.koin.dsl.module

@@ -58,7 +58,6 @@ class DetailsJobsFragment : Fragment() {
     fun goToApplyJob(){
 
         val bundle = bundleOf( "URL" to args.job.url , "TITLE" to args.job.title)
-//        val toApplyJob = DetailsJobsFragmentDirections.actionDetailsJobsFragmentToApplyFragment(bundle.toString())
         findNavController().navigate(R.id.action_detailsJobsFragment_to_applyFragment, bundle)
     }
 
