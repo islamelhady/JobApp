@@ -9,6 +9,10 @@
             type="com.elhady.ijobs.data.model.Job" />
 
         <variable
+            name="url"
+            type="String" />
+
+        <variable
             name="detailsJobs"
             type="com.elhady.ijobs.ui.view.details.DetailsJobsFragment" />
     </data>
@@ -354,7 +358,7 @@
                 android:layout_marginStart="6dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="10dp"
-                android:onClick="@{() -> detailsJobs.goToApplyJob()}"
+                android:onClick="@{() -> detailsJobs.goToApplyJob(ijobs.url.toString())}"
                 android:background="@drawable/btn_round_green_selector"
                 android:clickable="true"
                 android:focusable="true">

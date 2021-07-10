@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.navArgs
 import com.elhady.ijobs.databinding.FragmentApplyBinding
 
 
@@ -14,6 +15,7 @@ import com.elhady.ijobs.databinding.FragmentApplyBinding
 class ApplyFragment : Fragment() {
 
     private lateinit var binding: FragmentApplyBinding
+    private val args: ApplyFragmentArgs by navArgs()
 
 
     override fun onCreateView(
@@ -30,7 +32,8 @@ class ApplyFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.apply{
-            urlJob = arguments?.getString("URL")
+//            urlJob = arguments?.getString("URL")
+            urlJob = args.urljob
         }
     }
 

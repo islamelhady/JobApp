@@ -42,9 +42,10 @@ class DetailsJobsFragment : Fragment() {
     /**
      * Navigate to the apply screen to apply job .
      */
-    fun goToApplyJob(){
+    fun goToApplyJob(url:String){
 
-        findNavController().navigate(R.id.action_detailsJobsFragment_to_applyFragment, bundleOf("URL" to args.job.url))
+        val toApplyJob = DetailsJobsFragmentDirections.actionDetailsJobsFragmentToApplyFragment(url)
+        findNavController().navigate(toApplyJob)
     }
 
     // clear views references to fix memory leaks

@@ -56,5 +56,8 @@
         android:id="@+id/applyFragment"
         android:name="com.elhady.ijobs.ui.view.apply.ApplyFragment"
         android:label="ApplyFragment" >
+        <argument
+            android:name="urljob"
+            app:argType="string" />
     </fragment>
 </navigation>
