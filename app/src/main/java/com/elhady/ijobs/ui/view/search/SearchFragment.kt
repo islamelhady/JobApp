@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
-import androidx.core.view.isGone
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -30,17 +29,11 @@ class SearchFragment : Fragment() {
     private var querySearch: String = ""
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentSearchBinding.inflate(inflater)
-        binding.lifecycleOwner = this
         setupAdapter()
         setupObservers()
         searchJob()
@@ -49,6 +42,14 @@ class SearchFragment : Fragment() {
 //        viewModel.getSearchJob(querySearch)
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.apply {
+            lifecycleOwner = viewLifecycleOwner
+        }
     }
 
 
@@ -71,16 +72,16 @@ class SearchFragment : Fragment() {
     private fun setupObservers() {
         viewModel.allSearchJob.observe(viewLifecycleOwner, Observer { state ->
             when (state) {
-                is State.Loading -> binding.searchLoader.visibility
+//                is State.Loading -> binding.searchLoader.visibility
                 is State.Success -> {
                     if (state.data.jobs?.isNotEmpty()!!)
                         adapter?.submitList(state.data.jobs)
                     else
                         Toast.makeText(activity, "NO DATA", Toast.LENGTH_SHORT).show()
-                    binding.searchLoader.isGone
+//                    binding.searchLoader.isGone
                 }
                 is State.Error -> {
-                    binding.searchLoader.isGone
+//                    binding.searchLoader.isGone
                     Toast.makeText(activity, state.message, Toast.LENGTH_SHORT).show()
                 }
             }
@@ -106,11 +107,10 @@ class SearchFragment : Fragment() {
 
     }
 
+    // clear views references to fix memory leaks
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding.unbind()
+    }
 
-//    override fun onResume() {
-//        super.onResume()
-//        viewModel.getSearchJob(args.querySearch)
-//    }
-
-//    fun querySearch(): String = querySearch
 }

@@ -31,13 +31,8 @@ class ListJobsFragment : Fragment() {
     ): View? {
 
         binding = FragmentListJobsBinding.inflate(inflater)
-        binding.lifecycleOwner = this
-        binding.swipeRefresh.setColorSchemeResources(R.color.blue_200)
         setupAdapter()
         setupObservers()
-        binding.swipeRefresh.setOnRefreshListener {
-            refreshAllJobs()
-        }
         return binding.root
 
     }
@@ -45,7 +40,14 @@ class ListJobsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-       binding.listJobs = this
+        binding.apply {
+            lifecycleOwner = viewLifecycleOwner
+            listJobs = this@ListJobsFragment
+            swipeRefresh.setOnRefreshListener {
+                refreshAllJobs()
+            }
+            swipeRefresh.setColorSchemeResources(R.color.blue_200)
+        }
     }
 
 

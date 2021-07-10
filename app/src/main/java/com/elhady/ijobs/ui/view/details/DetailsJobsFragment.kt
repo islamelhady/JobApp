@@ -39,7 +39,7 @@ class DetailsJobsFragment : Fragment() {
     }
 
     /**
-     * Navigate to the apply screen to apply the job .
+     * Navigate to the apply screen to apply job .
      */
     fun goToApplyJob(){
         findNavController().navigate(R.id.action_detailsJobsFragment_to_applyFragment)
