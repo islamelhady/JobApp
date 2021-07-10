@@ -5,9 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.elhady.ijobs.MainActivity
 import com.elhady.ijobs.R
 import com.elhady.ijobs.data.model.Job
 import com.elhady.ijobs.databinding.FragmentDetailsJobsBinding
@@ -26,7 +28,10 @@ class DetailsJobsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentDetailsJobsBinding.inflate(inflater, container, false)
+        binding = FragmentDetailsJobsBinding.inflate(inflater)
+        // recieved argums
+        jobVal = args.job
+        setupToolbar()
         return binding.root
     }
 
@@ -34,18 +39,27 @@ class DetailsJobsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.apply {
-            ijobs = args.job
+            ijobs = jobVal
             detailsJobs = this@DetailsJobsFragment
+        }
+    }
+
+    private fun setupToolbar(){
+        if(requireActivity() is MainActivity){
+            (activity as AppCompatActivity?)!!.setSupportActionBar(binding.toolbar)
+            (activity as AppCompatActivity?)!!.supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+            (activity as AppCompatActivity?)!!.supportActionBar!!.setTitle(jobVal?.title)
         }
     }
 
     /**
      * Navigate to the apply screen to apply job .
      */
-    fun goToApplyJob(url:String){
+    fun goToApplyJob(){
 
-        val toApplyJob = DetailsJobsFragmentDirections.actionDetailsJobsFragmentToApplyFragment(url)
-        findNavController().navigate(toApplyJob)
+        val bundle = bundleOf( "URL" to args.job.url , "TITLE" to args.job.title)
+//        val toApplyJob = DetailsJobsFragmentDirections.actionDetailsJobsFragmentToApplyFragment(bundle.toString())
+        findNavController().navigate(R.id.action_detailsJobsFragment_to_applyFragment, bundle)
     }
 
     // clear views references to fix memory leaks

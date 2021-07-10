@@ -6,10 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.elhady.ijobs.MainActivity
 import com.elhady.ijobs.databinding.FragmentSearchBinding
 import com.elhady.ijobs.ui.adapter.IjobAdapter
 import com.elhady.ijobs.ui.adapter.JobClick
@@ -37,6 +39,7 @@ class SearchFragment : Fragment() {
         setupAdapter()
         setupObservers()
         searchJob()
+        setupToolbar()
 //        querySearch = args.querySearch
 
 //        viewModel.getSearchJob(querySearch)
@@ -105,6 +108,13 @@ class SearchFragment : Fragment() {
 
         })
 
+    }
+
+    private fun setupToolbar(){
+        if(requireActivity() is MainActivity){
+            (activity as AppCompatActivity?)!!.setSupportActionBar(binding.toolbar)
+            (activity as AppCompatActivity?)!!.supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        }
     }
 
     // clear views references to fix memory leaks

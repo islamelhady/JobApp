@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.navArgs
+import com.elhady.ijobs.MainActivity
 import com.elhady.ijobs.databinding.FragmentApplyBinding
 
 
@@ -16,6 +18,7 @@ class ApplyFragment : Fragment() {
 
     private lateinit var binding: FragmentApplyBinding
     private val args: ApplyFragmentArgs by navArgs()
+    private var title: String? = null
 
 
     override fun onCreateView(
@@ -24,7 +27,9 @@ class ApplyFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentApplyBinding.inflate(inflater)
-
+        // recieved argums
+        title = arguments?.getString("TITLE")
+        setupToolbar()
         return binding.root
     }
 
@@ -32,16 +37,16 @@ class ApplyFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.apply{
-//            urlJob = arguments?.getString("URL")
-            urlJob = args.urljob
+            urlJob = arguments?.getString("URL")
         }
     }
 
-//    override fun onActivityCreated(savedInstanceState: Bundle?) {
-//        super.onActivityCreated(savedInstanceState)
-//        binding.applyJob.apply {
-//            transitionName = args.urlJob
-//        }
-//    }
+    private fun setupToolbar(){
+        if(requireActivity() is MainActivity){
+            (activity as AppCompatActivity?)!!.setSupportActionBar(binding.toolbar)
+            (activity as AppCompatActivity?)!!.supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+            (activity as AppCompatActivity?)!!.supportActionBar!!.setTitle(title)
+        }
+    }
 
 }

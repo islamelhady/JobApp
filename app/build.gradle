@@ -101,6 +101,9 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-moshi:$version_retrofit"
     implementation "com.squareup.retrofit2:converter-gson:$version_retrofit"
     implementation "com.github.skydoves:sandwich:$sandwichVersion"
+    // Material Design
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'com.shreyaspatil:MaterialDialog:2.1'
     // Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version_kotlin_coroutines"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$version_kotlin_coroutines"
