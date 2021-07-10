@@ -27,7 +27,7 @@ class SearchViewModel(val repository: IjobRepository) : ViewModel() {
 
     private val coroutieneScope = CoroutineScope(viewModelJob + Dispatchers.Main)
 
-    fun getSearchJob(query: String?) {
+    fun getSearchJob(query: String) {
         coroutieneScope.launch {
             repository.searchJobs(query).collect {
                 _allSearchJob.value = it

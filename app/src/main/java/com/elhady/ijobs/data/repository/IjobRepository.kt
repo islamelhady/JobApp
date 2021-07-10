@@ -20,7 +20,7 @@ class IjobRepository(private val apiService: ApiService) {
         }.asFlow().flowOn(Dispatchers.IO)
     }
 
-    fun searchJobs(query: String?): Flow<State<RemoteJob>>{
+    fun searchJobs(query: String): Flow<State<RemoteJob>>{
         return object : NetworkBoundRepository<RemoteJob>(){
             override suspend fun fetchFromRemote(): Response<RemoteJob> =
                 apiService.searchJobs(query)

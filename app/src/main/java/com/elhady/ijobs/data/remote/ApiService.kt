@@ -13,6 +13,6 @@ interface ApiService {
     suspend fun getAllJobs(@Query("limit") limit: String): Response<RemoteJob>
 
     @GET("remote-jobs")
-    suspend fun searchJobs(@Query("search") search: String?): Response<RemoteJob>
+    suspend fun searchJobs(@Query("search") search: String): Response<RemoteJob>
 
 }

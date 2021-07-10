@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.isGone
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.elhady.ijobs.databinding.FragmentSearchBinding
 import com.elhady.ijobs.ui.adapter.IjobAdapter
@@ -53,10 +54,10 @@ class SearchFragment : Fragment() {
 
     private fun setupAdapter() {
         adapter = IjobAdapter(JobClick{ it
-//            val toDetailsFragment = it.let {
-//                ListJobsFragmentDirections.actionListJobsFragmentToDetailsJobsFragment(it)
-//            }
-//            findNavController().navigate(toDetailsFragment)
+            val toDetailsFragment = it.let {
+                SearchFragmentDirections.actionSearchFragmentToDetailsJobsFragment(it)
+            }
+            findNavController().navigate(toDetailsFragment)
         })
         // Sets the adapter of the RecyclerView
         binding.searchList.adapter = adapter
