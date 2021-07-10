@@ -4,10 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="ijobs"
             type="com.elhady.ijobs.data.model.Job" />
+
+        <variable
+            name="detailsJobs"
+            type="com.elhady.ijobs.ui.view.details.DetailsJobsFragment" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -351,6 +354,7 @@
                 android:layout_marginStart="6dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="10dp"
+                android:onClick="@{() -> detailsJobs.goToApplyJob()}"
                 android:background="@drawable/btn_round_green_selector"
                 android:clickable="true"
                 android:focusable="true">

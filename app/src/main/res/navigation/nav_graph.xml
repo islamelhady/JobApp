@@ -34,6 +34,9 @@
         <argument
             android:name="job"
             app:argType="com.elhady.ijobs.data.model.Job" />
+        <action
+            android:id="@+id/action_detailsJobsFragment_to_applyFragment"
+            app:destination="@id/applyFragment" />
 
     </fragment>
     <fragment
@@ -49,4 +52,8 @@
             app:argType="string" />
 
     </fragment>
+    <fragment
+        android:id="@+id/applyFragment"
+        android:name="com.elhady.ijobs.ui.view.apply.ApplyFragment"
+        android:label="ApplyFragment" />
 </navigation>
