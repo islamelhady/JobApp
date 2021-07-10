@@ -1,6 +1,8 @@
 package com.elhady.ijobs.ui.binding
 
 import android.text.method.LinkMovementMethod
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.text.HtmlCompat
@@ -47,3 +49,10 @@ fun bindDescriptionHtml(view: TextView, description: String?) {
 //    searchView.setQuery(queryText, false)
 //    searchView.setOnQueryTextListener(listener)
 //}
+
+
+@BindingAdapter("loadUrl")
+fun loadUrl(view: WebView, url: String){
+    view.webViewClient = WebViewClient()
+    view.loadUrl(url)
+}

@@ -22,8 +22,8 @@
             android:id="@+id/appbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:popupTheme="@style/Theme.IJobs.Toolbar"
-            app:elevation="0dp">
+            app:elevation="0dp"
+            app:popupTheme="@style/Theme.IJobs.Toolbar">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -161,9 +161,9 @@
                                     <TextView
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
+                                        android:layout_gravity="center_vertical"
                                         android:layout_marginStart="5dp"
                                         android:fontFamily="@font/book"
-                                        android:layout_gravity="center_vertical"
                                         android:text="Job Description"
                                         android:textColor="@color/navy_100" />
 
@@ -174,9 +174,9 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/book"
                                     android:gravity="center_vertical"
-                                    app:descriptionHtml="@{ijobs.description}"
                                     android:textColor="@color/gray_400"
                                     android:textIsSelectable="true"
+                                    app:descriptionHtml="@{ijobs.description}"
                                     tools:text="Job Description" />
 
                             </LinearLayout>
@@ -216,9 +216,9 @@
                                     <TextView
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
+                                        android:layout_gravity="center_vertical"
                                         android:layout_marginStart="5dp"
                                         android:fontFamily="@font/book"
-                                        android:layout_gravity="center_vertical"
                                         android:text="Company Information"
                                         android:textColor="@color/navy_100" />
 
@@ -243,8 +243,8 @@
                                         <TextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginStart="5dp"
                                             android:layout_gravity="center_vertical"
+                                            android:layout_marginStart="5dp"
                                             android:text="@{ijobs.company_name}"
                                             android:textSize="10sp"
                                             tools:text="Company Information" />
@@ -253,8 +253,8 @@
                                     <LinearLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:orientation="horizontal"
-                                        android:layout_marginTop="3dp">
+                                        android:layout_marginTop="3dp"
+                                        android:orientation="horizontal">
 
                                         <ImageView
                                             android:id="@+id/iconLocation"
@@ -266,10 +266,10 @@
                                         <TextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginStart="5dp"
                                             android:layout_gravity="center_vertical"
-                                            android:textSize="10sp"
+                                            android:layout_marginStart="5dp"
                                             android:text="@{ijobs.candidate_required_location}"
+                                            android:textSize="10sp"
                                             tools:text="Company Location" />
                                     </LinearLayout>
 
@@ -288,8 +288,8 @@
                                         <TextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginStart="5dp"
                                             android:layout_gravity="center_vertical"
+                                            android:layout_marginStart="5dp"
                                             android:text="@{ijobs.url}"
                                             android:textSize="10sp"
                                             tools:text="Website" />
@@ -331,10 +331,10 @@
                 android:layout_height="50dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="6dp"
-                android:clickable="true"
-                android:focusable="true"
                 android:layout_marginBottom="10dp"
-                android:background="@drawable/bg_rounded_green_outline">
+                android:background="@drawable/bg_rounded_green_outline"
+                android:clickable="true"
+                android:focusable="true">
 
                 <ImageView
                     android:id="@+id/buttonMark"
@@ -365,20 +365,20 @@
                     android:layout_centerInParent="true"
                     android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_width="21dp"
-                        android:layout_height="21dp"
-                        android:src="@drawable/ic_help"
-                        app:tint="@color/white" />
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="5dp"
                         android:layout_gravity="center_vertical"
                         android:fontFamily="@font/bold"
                         android:text="How To Apply"
                         android:textColor="@color/white" />
+
+                    <ImageView
+                        android:layout_width="21dp"
+                        android:layout_height="21dp"
+                        android:layout_marginStart="5dp"
+                        android:src="@drawable/ic_help"
+                        app:tint="@color/white" />
                 </LinearLayout>
 
             </RelativeLayout>

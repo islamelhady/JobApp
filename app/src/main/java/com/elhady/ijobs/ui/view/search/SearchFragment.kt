@@ -90,7 +90,7 @@ class SearchFragment : Fragment() {
     }
 
     private fun searchJob() {
-
+        binding.searchView.onActionViewExpanded()
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 if (query.toString().isNotEmpty()) {
@@ -100,7 +100,7 @@ class SearchFragment : Fragment() {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                return false
+                return true
             }
 
         })

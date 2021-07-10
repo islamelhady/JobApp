@@ -55,5 +55,6 @@
     <fragment
         android:id="@+id/applyFragment"
         android:name="com.elhady.ijobs.ui.view.apply.ApplyFragment"
-        android:label="ApplyFragment" />
+        android:label="ApplyFragment" >
+    </fragment>
 </navigation>

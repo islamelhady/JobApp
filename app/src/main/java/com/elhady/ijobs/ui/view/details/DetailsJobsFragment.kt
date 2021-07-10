@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.elhady.ijobs.R
@@ -42,7 +43,8 @@ class DetailsJobsFragment : Fragment() {
      * Navigate to the apply screen to apply job .
      */
     fun goToApplyJob(){
-        findNavController().navigate(R.id.action_detailsJobsFragment_to_applyFragment)
+
+        findNavController().navigate(R.id.action_detailsJobsFragment_to_applyFragment, bundleOf("URL" to args.job.url))
     }
 
     // clear views references to fix memory leaks

@@ -5,14 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.elhady.ijobs.R
+import com.elhady.ijobs.databinding.FragmentApplyBinding
 
 
 /**
- * Created by islam elhady on 22-Mar-21.
+ * Created by islam elhady on 10-Jul-21.
  */
 class ApplyFragment : Fragment() {
 
+    private lateinit var binding: FragmentApplyBinding
 
 
     override fun onCreateView(
@@ -20,7 +21,24 @@ class ApplyFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_apply, container, false)
+        binding = FragmentApplyBinding.inflate(inflater)
+
+        return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.apply{
+            urlJob = arguments?.getString("URL")
+        }
+    }
+
+//    override fun onActivityCreated(savedInstanceState: Bundle?) {
+//        super.onActivityCreated(savedInstanceState)
+//        binding.applyJob.apply {
+//            transitionName = args.urlJob
+//        }
+//    }
 
 }
