@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.navArgs
-import com.elhady.ijobs.MainActivity
+import com.elhady.ijobs.ui.view.MainActivity
 import com.elhady.ijobs.databinding.FragmentApplyBinding
 
 

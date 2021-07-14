@@ -10,7 +10,7 @@ import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.elhady.ijobs.MainActivity
+import com.elhady.ijobs.ui.view.MainActivity
 import com.elhady.ijobs.databinding.FragmentSearchBinding
 import com.elhady.ijobs.ui.adapter.IjobAdapter
 import com.elhady.ijobs.ui.adapter.JobClick

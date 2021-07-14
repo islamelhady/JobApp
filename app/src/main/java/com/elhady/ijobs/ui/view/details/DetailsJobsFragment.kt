@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.elhady.ijobs.MainActivity
+import com.elhady.ijobs.ui.view.MainActivity
 import com.elhady.ijobs.R
 import com.elhady.ijobs.data.model.Job
 import com.elhady.ijobs.databinding.FragmentDetailsJobsBinding

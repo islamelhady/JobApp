@@ -1,4 +1,4 @@
-package com.elhady.ijobs
+package com.elhady.ijobs.ui.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
