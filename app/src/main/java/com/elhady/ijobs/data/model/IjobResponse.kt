@@ -29,5 +29,6 @@ data class Job(
     val publication_date: String?= null,
     val salary: String?= null,
     val title: String?= null,
-    val url: String?= null
+    val url: String?= null,
+    val is_mark: Int?= 0
 ): Parcelable

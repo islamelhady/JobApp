@@ -13,6 +13,8 @@ import com.elhady.ijobs.databinding.FragmentListJobsBinding
 import com.elhady.ijobs.ui.adapter.IjobAdapter
 import com.elhady.ijobs.ui.adapter.JobClick
 import com.elhady.ijobs.utils.State
+import com.elhady.ijobs.utils.makeToast
+import kotlinx.android.synthetic.main.fragment_list_jobs.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
 /**
@@ -47,6 +49,7 @@ class ListJobsFragment : Fragment() {
                 refreshAllJobs()
             }
             swipeRefresh.setColorSchemeResources(R.color.blue_200)
+            shimmer.visibility = View.VISIBLE
         }
     }
 
@@ -78,10 +81,11 @@ class ListJobsFragment : Fragment() {
                     else
                         Toast.makeText(activity, "NO DATA", Toast.LENGTH_SHORT).show()
                     binding.swipeRefresh.isRefreshing = false
+                    binding.shimmer.visibility = View.GONE
                 }
                 is State.Error -> {
                     binding.swipeRefresh.isRefreshing = false
-                    Toast.makeText(activity, state.message, Toast.LENGTH_SHORT).show()
+                    makeToast(state.message)
                 }
             }
         })

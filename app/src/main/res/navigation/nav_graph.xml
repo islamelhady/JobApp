@@ -37,6 +37,9 @@
         <action
             android:id="@+id/action_detailsJobsFragment_to_applyFragment"
             app:destination="@id/applyFragment" />
+        <action
+            android:id="@+id/action_detailsJobsFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
 
     </fragment>
     <fragment

@@ -7,4 +7,8 @@
     <string name="exit_dialog_title">Exit?</string>
     <string name="option_yes">Yes</string>
     <string name="option_no">No</string>
+    <string name="welcome">Hi, Welcome to iJobs</string>
+    <string name="find_awesome_job">Find awesome job</string>
+    <string name="search">What are you looking for?</string>
+    <string name="no_data_found">No Data Found</string>
 </resources>

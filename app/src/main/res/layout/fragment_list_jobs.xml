@@ -60,7 +60,7 @@
                         android:layout_marginEnd="10dp"
                         android:layout_toStartOf="@id/notif"
                         android:fontFamily="@font/book"
-                        android:text="Hi, Welcome back"
+                        android:text="@string/welcome"
                         android:textColor="@color/white"
                         android:textSize="16sp" />
 
@@ -74,7 +74,7 @@
                         android:layout_marginEnd="10dp"
                         android:layout_toStartOf="@id/notif"
                         android:fontFamily="@font/bold"
-                        android:text="Find your perfect job"
+                        android:text="@string/find_awesome_job"
                         android:textColor="@color/white"
                         android:textSize="26sp" />
 
@@ -88,7 +88,7 @@
                         android:layout_marginEnd="16dp"
                         android:contentDescription="@string/app_name"
                         android:paddingBottom="10dp"
-                        android:src="@drawable/ic_more"
+                        android:src="@drawable/ic_dark_mode"
                         app:tint="@color/white" />
 
                     <LinearLayout
@@ -124,7 +124,7 @@
                                     android:layout_marginEnd="16dp"
                                     android:fontFamily="@font/book"
                                     android:singleLine="true"
-                                    android:text="What are you looking for?"
+                                    android:text="@string/search"
                                     android:textColor="@color/blue_050"
                                     android:textSize="16sp" />
 
@@ -166,7 +166,31 @@
             app:layout_anchor="@id/appbar"
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="16dp"
+                android:visibility="gone"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                app:shimmer_duration="800"
+                app:shimmer_auto_start="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <include layout="@layout/item_job_placeholder" />
+                    <include layout="@layout/item_job_placeholder" />
+                    <include layout="@layout/item_job_placeholder" />
+                    <include layout="@layout/item_job_placeholder" />
+                    <include layout="@layout/item_job_placeholder" />
+                    <include layout="@layout/item_job_placeholder" />
+                    <include layout="@layout/item_job_placeholder" />
+                    <include layout="@layout/item_job_placeholder" />
+                    <include layout="@layout/item_job_placeholder" />
+                </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
 
             <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
                 android:id="@+id/swipeRefresh"

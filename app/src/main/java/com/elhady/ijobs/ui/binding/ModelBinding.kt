@@ -1,6 +1,7 @@
 package com.elhady.ijobs.ui.binding
 
 import android.text.method.LinkMovementMethod
+import android.view.View
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.ImageView
@@ -55,4 +56,13 @@ fun bindDescriptionHtml(view: TextView, description: String?) {
 fun loadUrl(view: WebView, url: String){
     view.webViewClient = WebViewClient()
     view.loadUrl(url)
+}
+
+@BindingAdapter("isGone")
+fun bindIsGone(view: View, isGone: Boolean) {
+    view.visibility = if (isGone) {
+        View.GONE
+    } else {
+        View.VISIBLE
+    }
 }

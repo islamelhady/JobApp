@@ -33,7 +33,7 @@
         app:cardElevation="0dp"
         app:strokeWidth="1dp">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -66,7 +66,6 @@
                         app:jobSrc="@{job.company_logo_url}"
                         tools:src="@drawable/ic_business_center" />
 
-
                 </com.google.android.material.card.MaterialCardView>
 
                 <LinearLayout
@@ -87,6 +86,7 @@
                         android:text="@{job.title}"
                         android:textColor="@color/gray_500"
                         android:textSize="18sp"
+                        android:layout_marginEnd="35dp"
                         tools:text="Job Title" />
 
                     <RelativeLayout
@@ -192,11 +192,21 @@
                     </RelativeLayout>
 
                 </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/mark"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentEnd="true"
+                    android:src="@{job.is_mark == 1 ? @drawable/ic_marked : @drawable/ic_mark}"
+                    android:padding="3dp"
+                    app:tint="@color/gray_200"/>
+
             </RelativeLayout>
-
-
-        </RelativeLayout>
-
+        </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
 </layout>

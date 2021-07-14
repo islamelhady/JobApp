@@ -49,7 +49,7 @@
                     android:queryHint="@string/search_job"
                     app:iconifiedByDefault="false"
                     app:searchHintIcon="@null"
-                    app:searchIcon="@null" />
+                    app:searchIcon="@drawable/ic_search" />
 
             </androidx.appcompat.widget.Toolbar>
 

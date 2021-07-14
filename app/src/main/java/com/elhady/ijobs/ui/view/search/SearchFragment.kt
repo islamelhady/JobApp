@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
@@ -16,6 +15,7 @@ import com.elhady.ijobs.databinding.FragmentSearchBinding
 import com.elhady.ijobs.ui.adapter.IjobAdapter
 import com.elhady.ijobs.ui.adapter.JobClick
 import com.elhady.ijobs.utils.State
+import com.elhady.ijobs.utils.makeToast
 import org.koin.android.viewmodel.ext.android.viewModel
 
 
@@ -40,9 +40,6 @@ class SearchFragment : Fragment() {
         setupObservers()
         searchJob()
         setupToolbar()
-//        querySearch = args.querySearch
-
-//        viewModel.getSearchJob(querySearch)
 
         return binding.root
     }
@@ -57,7 +54,8 @@ class SearchFragment : Fragment() {
 
 
     private fun setupAdapter() {
-        adapter = IjobAdapter(JobClick{ it
+        adapter = IjobAdapter(JobClick {
+            it
             val toDetailsFragment = it.let {
                 SearchFragmentDirections.actionSearchFragmentToDetailsJobsFragment(it)
             }
@@ -75,17 +73,17 @@ class SearchFragment : Fragment() {
     private fun setupObservers() {
         viewModel.allSearchJob.observe(viewLifecycleOwner, Observer { state ->
             when (state) {
-//                is State.Loading -> binding.searchLoader.visibility
+                is State.Loading -> binding.searchLoader.visibility = View.VISIBLE
                 is State.Success -> {
                     if (state.data.jobs?.isNotEmpty()!!)
                         adapter?.submitList(state.data.jobs)
                     else
-                        Toast.makeText(activity, "NO DATA", Toast.LENGTH_SHORT).show()
-//                    binding.searchLoader.isGone
+                    makeToast("NO DATA")
+                    binding.searchLoader.visibility = View.GONE
                 }
                 is State.Error -> {
-//                    binding.searchLoader.isGone
-                    Toast.makeText(activity, state.message, Toast.LENGTH_SHORT).show()
+                    binding.searchLoader.visibility = View.GONE
+                    makeToast(state.message)
                 }
             }
         })
@@ -93,7 +91,6 @@ class SearchFragment : Fragment() {
     }
 
     private fun searchJob() {
-        binding.searchView.onActionViewExpanded()
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 if (query.toString().isNotEmpty()) {
@@ -103,7 +100,7 @@ class SearchFragment : Fragment() {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                return true
+                return false
             }
 
         })

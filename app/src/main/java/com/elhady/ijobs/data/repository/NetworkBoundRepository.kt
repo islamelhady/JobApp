@@ -2,7 +2,6 @@ package com.elhady.ijobs.data.repository
 
 import androidx.annotation.MainThread
 import com.elhady.ijobs.utils.State
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flow
 import retrofit2.Response
 
