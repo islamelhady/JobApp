@@ -4,8 +4,7 @@ import android.text.method.LinkMovementMethod
 import android.view.View
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import android.widget.ImageView
-import android.widget.TextView
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.text.HtmlCompat
 import androidx.core.text.HtmlCompat.FROM_HTML_MODE_COMPACT
@@ -21,7 +20,7 @@ import com.elhady.ijobs.utils.toDateFormatted
  * Created by islam elhady on 23-Mar-21.
  */
 @BindingAdapter("jobSrc")
-fun bindJobSrc(view: ImageView, companyLogo: String?) {
+fun bindJobSrc(view: AppCompatImageView, companyLogo: String?) {
     if(!companyLogo.isNullOrEmpty())
         Glide.with(view.context)
             .load(companyLogo)
@@ -33,7 +32,7 @@ fun bindJobSrc(view: ImageView, companyLogo: String?) {
 }
 
 @BindingAdapter("descriptionHtml")
-fun bindDescriptionHtml(view: TextView, description: String?) {
+fun bindDescriptionHtml(view: AppCompatTextView, description: String?) {
     if (description != null) {
         view.text = HtmlCompat.fromHtml(description, FROM_HTML_MODE_COMPACT)
         view.movementMethod = LinkMovementMethod.getInstance()
@@ -46,19 +45,6 @@ fun bindDescriptionHtml(view: TextView, description: String?) {
 fun formatArticleDate(view: AppCompatTextView, date: String?) {
     view.text = date?.toDateFormatted(YEAR_MONTH_DAY_T_TIME, DAY_MONTH_YEAR_HOUR_MIN)
 }
-
-//@BindingAdapter("query")
-//fun setQuery(searchView: SearchView, queryText: String) {
-////        searchView.setQuery(queryText, false)
-//
-//}
-//
-//@BindingAdapter("queryTextListener")
-//fun setOnQueryTextListener(searchView: SearchView, listener: SearchView.OnQueryTextListener, queryText: String) {
-//    searchView.isSubmitButtonEnabled
-//    searchView.setQuery(queryText, false)
-//    searchView.setOnQueryTextListener(listener)
-//}
 
 
 @BindingAdapter("loadUrl")

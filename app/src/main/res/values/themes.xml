@@ -21,7 +21,13 @@
         <item name="android:textColor">@android:color/white</item>
     </style>
 
-    <style name="Theme.IJobs.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.IJobs.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar">
+        <item name="android:textColorPrimary">@color/design_default_color_primary</item>
+        <item name="android:textColorSecondary">@color/design_default_color_secondary</item>
+        <item name="android:textColorHint">@color/design_default_color_secondary_variant
+        </item>
+    </style>
+
 
     <style name="Theme.IJobs.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 

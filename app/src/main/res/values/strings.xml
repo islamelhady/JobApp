@@ -11,4 +11,9 @@
     <string name="find_awesome_job">Find awesome job</string>
     <string name="search">What are you looking for?</string>
     <string name="no_data_found">No Data Found</string>
+    <string name="job_title">Job Title</string>
+    <string name="company_name">Company Name</string>
+    <string name="location">Location</string>
+    <string name="job_type">Job Type</string>
+    <string name="create_at">Create at</string>
 </resources>

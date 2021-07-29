@@ -13,8 +13,9 @@
         <action
             android:id="@+id/action_splashFragment_to_listJobsFragment"
             app:destination="@id/listJobsFragment"
-            app:popUpTo="@id/nav_graph"/>
+            app:popUpTo="@id/nav_graph" />
     </fragment>
+
     <fragment
         android:id="@+id/listJobsFragment"
         android:name="com.elhady.ijobs.ui.view.home.ListJobsFragment"
@@ -23,43 +24,25 @@
         <action
             android:id="@+id/action_listJobsFragment_to_detailsJobsFragment"
             app:destination="@id/detailsJobsFragment" />
-        <action
-            android:id="@+id/action_listJobsFragment_to_searchFragment"
-            app:destination="@id/searchFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/detailsJobsFragment"
         android:name="com.elhady.ijobs.ui.view.details.DetailsJobsFragment"
         android:label="fragment_details_jobs"
-        tools:layout="@layout/fragment_details_jobs" >
+        tools:layout="@layout/fragment_details_jobs">
         <argument
             android:name="job"
             app:argType="com.elhady.ijobs.data.model.Job" />
         <action
             android:id="@+id/action_detailsJobsFragment_to_applyFragment"
             app:destination="@id/applyFragment" />
-        <action
-            android:id="@+id/action_detailsJobsFragment_to_searchFragment"
-            app:destination="@id/searchFragment" />
-
     </fragment>
-    <fragment
-        android:id="@+id/searchFragment"
-        android:name="com.elhady.ijobs.ui.view.search.SearchFragment"
-        android:label="fragment_search"
-        tools:layout="@layout/fragment_search">
-        <action
-            android:id="@+id/action_searchFragment_to_detailsJobsFragment"
-            app:destination="@id/detailsJobsFragment" />
-        <argument
-            android:name="querySearch"
-            app:argType="string" />
 
-    </fragment>
     <fragment
         android:id="@+id/applyFragment"
         android:name="com.elhady.ijobs.ui.view.apply.ApplyFragment"
-        android:label="ApplyFragment" >
+        android:label="ApplyFragment">
         <argument
             android:name="job"
             app:argType="string" />
