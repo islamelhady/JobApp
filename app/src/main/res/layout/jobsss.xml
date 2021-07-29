@@ -84,25 +84,25 @@
                         app:layout_constraintEnd_toStartOf="@+id/notif"
                         app:layout_constraintTop_toBottomOf="@+id/welcomeText" />
 
-                    <ImageView
+                    <androidx.appcompat.widget.AppCompatToggleButton
                         android:id="@+id/notif"
                         android:layout_width="26dp"
-                        android:layout_height="40dp"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentEnd="true"
+                        android:layout_height="26dp"
                         android:layout_marginTop="42dp"
                         android:layout_marginEnd="16dp"
+                        android:background="@drawable/ic_dark_mode"
+                        android:checked="false"
                         android:contentDescription="@string/app_name"
                         android:onClick="@{()-> listJobs.nightMode()}"
                         android:paddingBottom="10dp"
-                        android:src="@drawable/ic_dark_mode"
-                        app:tint="@color/white"
+                        android:textOff=""
+                        android:textOn=""
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
 
                     <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/cardSearch"
+                        android:id="@+id/imgSearch"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
@@ -120,12 +120,10 @@
                         app:strokeWidth="0.3dp">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/conSearch"
                             android:layout_width="match_parent"
                             android:layout_height="60dp">
 
                             <TextView
-                                android:id="@+id/textSearch"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="20dp"
@@ -150,42 +148,6 @@
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
                                 app:tint="@color/blue_050" />
-
-                            <androidx.appcompat.widget.AppCompatImageView
-                                android:id="@+id/backImage"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:paddingStart="10dp"
-                                android:src="@drawable/ic_back"
-                                android:visibility="gone"
-                                app:tint="@color/blue_050"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <EditText
-                                android:id="@+id/searchResultsET"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/bg_search_edt"
-                                android:drawablePadding="10dp"
-                                android:layout_marginEnd="10dp"
-                                android:layout_marginStart="10dp"
-                                android:textSize="14sp"
-                                android:hint="@string/search_job"
-                                android:textColor="@color/blue_050"
-                                android:backgroundTint="@color/blue_250"
-                                android:textColorHint="@color/blue_050"
-                                android:padding="5dp"
-                                android:drawableStart="@null"
-                                android:paddingEnd="10dp"
-                                android:singleLine="true"
-                                android:imeOptions="actionDone"
-                                android:visibility="gone"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toEndOf="@+id/backImage"/>
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
                     </com.google.android.material.card.MaterialCardView>
@@ -213,7 +175,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="@drawable/bg_rounded_top"
             app:layout_anchor="@id/appbar"
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
@@ -258,7 +220,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="5dp"
-                    android:paddingTop="15dp"
+                    android:paddingTop="12dp"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_behavior="@string/appbar_scrolling_view_behavior"
                     app:layout_constraintStart_toStartOf="parent"

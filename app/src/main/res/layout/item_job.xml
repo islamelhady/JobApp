@@ -173,7 +173,7 @@
                             android:textSize="10sp"
                             tools:text="Job Type" />
 
-                        <TextView
+                        <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
@@ -184,7 +184,7 @@
                             android:paddingEnd="6dp"
                             android:paddingBottom="2dp"
                             android:singleLine="true"
-                            android:text="@{job.publication_date}"
+                            app:formatDate="@{job.publication_date}"
                             android:textColor="@color/gray_300"
                             android:textSize="10sp"
                             tools:text="Create at" />
@@ -201,7 +201,6 @@
                     android:layout_width="30dp"
                     android:layout_height="40dp"
                     android:layout_alignParentEnd="true"
-                    android:src="@{job.is_mark == 1 ? @drawable/ic_marked : @drawable/ic_mark}"
                     android:padding="3dp"
                     app:tint="@color/gray_200"/>
 

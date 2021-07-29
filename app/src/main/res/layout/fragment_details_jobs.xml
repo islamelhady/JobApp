@@ -23,16 +23,16 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:elevation="0dp"
-            app:popupTheme="@style/Theme.IJobs.Toolbar">
+            app:popupTheme="@style/Theme.Toolbar">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:theme="@style/Theme.IJobs.Toolbar"
+                android:theme="@style/Theme.Toolbar"
                 app:elevation="8dp"
                 app:layout_collapseMode="pin"
-                app:popupTheme="@style/Theme.IJobs.Toolbar"
+                app:popupTheme="@style/Theme.Toolbar"
                 app:titleTextColor="@color/white" />
 
         </com.google.android.material.appbar.AppBarLayout>

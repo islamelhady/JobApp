@@ -6,12 +6,16 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.text.HtmlCompat
 import androidx.core.text.HtmlCompat.FROM_HTML_MODE_COMPACT
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.elhady.ijobs.R
+import com.elhady.ijobs.utils.DAY_MONTH_YEAR_HOUR_MIN
+import com.elhady.ijobs.utils.YEAR_MONTH_DAY_T_TIME
+import com.elhady.ijobs.utils.toDateFormatted
 
 /**
  * Created by islam elhady on 23-Mar-21.
@@ -36,6 +40,11 @@ fun bindDescriptionHtml(view: TextView, description: String?) {
     } else {
         view.text = ""
     }
+}
+
+@BindingAdapter("formatDate")
+fun formatArticleDate(view: AppCompatTextView, date: String?) {
+    view.text = date?.toDateFormatted(YEAR_MONTH_DAY_T_TIME, DAY_MONTH_YEAR_HOUR_MIN)
 }
 
 //@BindingAdapter("query")

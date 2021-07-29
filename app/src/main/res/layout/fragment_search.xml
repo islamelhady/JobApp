@@ -29,17 +29,17 @@
             android:id="@+id/appBar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:popupTheme="@style/Theme.IJobs.Toolbar"
+            app:popupTheme="@style/Theme.Toolbar"
             app:elevation="0dp">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:theme="@style/Theme.IJobs.Toolbar"
+                android:theme="@style/Theme.Toolbar"
                 app:contentInsetStartWithNavigation="0dp"
                 app:layout_scrollFlags="scroll|enterAlways"
-                app:popupTheme="@style/Theme.IJobs.Toolbar"
+                app:popupTheme="@style/Theme.Toolbar"
                 app:titleTextColor="@color/white">
 
                 <androidx.appcompat.widget.SearchView

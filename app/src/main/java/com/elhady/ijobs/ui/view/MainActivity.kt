@@ -10,6 +10,8 @@ import com.elhady.ijobs.R
  */
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.Theme) // Set AppTheme before setting content view.
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     }
