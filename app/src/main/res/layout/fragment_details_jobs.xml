@@ -70,12 +70,13 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
 
-                        <ImageView
+                        <androidx.appcompat.widget.AppCompatImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:contentDescription="@string/app_name"
                             android:scaleType="fitXY"
                             app:jobSrc="@{ijobs.company_logo_url}"
+                            tools:ignore="ImageContrastCheck"
                             tools:src="@drawable/banner" />
 
                     </com.google.android.material.card.MaterialCardView>
@@ -165,11 +166,12 @@
                                 android:drawableTint="@color/navy_100"
                                 android:fontFamily="@font/book"
                                 android:gravity="center_vertical"
-                                android:text="Job Description"
+                                android:text="@string/job_description"
                                 android:textColor="@color/navy_100"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:targetApi="m" />
 
 
                             <androidx.appcompat.widget.AppCompatTextView
@@ -179,11 +181,13 @@
                                 android:fontFamily="@font/book"
                                 android:gravity="center_vertical"
                                 android:textColor="@color/gray_400"
+                                android:textSize="12sp"
                                 android:textIsSelectable="true"
                                 app:descriptionHtml="@{ijobs.description}"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toBottomOf="@+id/jobInfoDesc"
+                                tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck"
                                 tools:text="Job Description" />
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -215,10 +219,10 @@
                                 android:layout_marginStart="16dp"
                                 android:drawableStart="@drawable/ic_work"
                                 android:drawablePadding="5dp"
-                                android:drawableTint="@color/navy_100"
+                                app:drawableTint="@color/navy_100"
                                 android:fontFamily="@font/book"
                                 android:gravity="center_vertical"
-                                android:text="Company Information"
+                                android:text="@string/company_information"
                                 android:textColor="@color/navy_100"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
@@ -233,16 +237,18 @@
                                 android:layout_marginTop="16dp"
                                 android:drawableStart="@drawable/ic_company"
                                 android:drawablePadding="5dp"
-                                android:drawableTint="@color/gray_300"
                                 android:fontFamily="@font/book"
                                 android:gravity="center_vertical"
+                                android:minHeight="48dp"
+                                android:text="@{ijobs.company_name}"
                                 android:textColor="@color/gray_400"
                                 android:textIsSelectable="true"
-                                android:textSize="10sp"
-                                app:descriptionHtml="@{ijobs.description}"
+                                android:textSize="12sp"
+                                app:drawableTint="@color/gray_300"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toBottomOf="@+id/jobInfoWork"
+                                tools:ignore="TextContrastCheck"
                                 tools:text="Company Info" />
 
                             <androidx.appcompat.widget.AppCompatTextView
@@ -252,16 +258,17 @@
                                 android:layout_marginTop="16dp"
                                 android:drawableStart="@drawable/ic_location"
                                 android:drawablePadding="5dp"
-                                android:drawableTint="@color/gray_300"
                                 android:fontFamily="@font/book"
                                 android:gravity="center_vertical"
+                                android:text="@{ijobs.candidate_required_location}"
                                 android:textColor="@color/gray_400"
                                 android:textIsSelectable="true"
-                                android:textSize="10sp"
-                                app:descriptionHtml="@{ijobs.description}"
+                                android:textSize="12sp"
+                                app:drawableTint="@color/gray_300"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toBottomOf="@+id/companyInfo"
+                                tools:ignore="TouchTargetSizeCheck,TextContrastCheck"
                                 tools:text="Location" />
 
                             <androidx.appcompat.widget.AppCompatTextView
@@ -271,16 +278,18 @@
                                 android:layout_marginTop="16dp"
                                 android:drawableStart="@drawable/ic_public"
                                 android:drawablePadding="5dp"
-                                android:drawableTint="@color/gray_300"
                                 android:fontFamily="@font/book"
                                 android:gravity="center_vertical"
+                                android:minHeight="48dp"
+                                android:text="@{ijobs.url}"
                                 android:textColor="@color/gray_400"
                                 android:textIsSelectable="true"
-                                android:textSize="10sp"
-                                app:descriptionHtml="@{ijobs.description}"
+                                android:textSize="12sp"
+                                app:drawableTint="@color/gray_300"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toBottomOf="@+id/companyLocation"
+                                tools:ignore="TextContrastCheck"
                                 tools:text="Website" />
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -354,9 +363,10 @@
                     android:drawableEnd="@drawable/ic_info"
                     android:drawablePadding="5dp"
                     android:drawableTint="@color/white"
-                    android:text="How to apply"
+                    android:text="@string/how_to_apply"
                     android:textColor="@color/white"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    tools:targetApi="m" />
 
             </com.google.android.material.card.MaterialCardView>
 

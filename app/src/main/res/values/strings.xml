@@ -16,4 +16,7 @@
     <string name="location">Location</string>
     <string name="job_type">Job Type</string>
     <string name="create_at">Create at</string>
+    <string name="company_information">Company Information</string>
+    <string name="how_to_apply">How to apply</string>
+    <string name="job_description">Job Description</string>
 </resources>

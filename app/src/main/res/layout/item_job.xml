@@ -25,6 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
         android:layout_marginEnd="10dp"
         android:foreground="?attr/selectableItemBackground"
         android:background="@color/blue_200"
@@ -52,7 +53,7 @@
                 app:cardElevation="0dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:strokeColor="@color/blue_200"
+                app:strokeColor="@color/gray_200"
                 app:strokeWidth="1dp"
                 tools:src="@drawable/ic_photo">
 
@@ -63,6 +64,7 @@
                     android:contentDescription="@string/app_name"
                     android:scaleType="fitXY"
                     app:jobSrc="@{job.company_logo_url}"
+                    tools:ignore="ImageContrastCheck"
                     tools:src="@drawable/banner" />
 
             </com.google.android.material.card.MaterialCardView>
@@ -88,7 +90,7 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/mark"
-                android:layout_width="30dp"
+                android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_margin="5dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
@@ -97,7 +99,8 @@
                 android:src="@drawable/ic_mark"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:tint="@color/gray_200" />
+                app:tint="@color/gray_200"
+                tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck,TouchTargetSizeCheck" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/companyName"
@@ -108,18 +111,19 @@
                 android:layout_marginEnd="5dp"
                 android:drawableStart="@drawable/ic_company"
                 android:drawablePadding="5dp"
-                android:drawableTint="@color/gray_300"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
                 android:ellipsize="end"
                 android:fontFamily="@font/book"
                 android:gravity="center_vertical"
                 android:singleLine="true"
                 android:text="@{job.company_name}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
                 android:textColor="@color/gray_300"
                 android:textSize="12sp"
+                app:drawableTint="@color/gray_300"
                 app:layout_constraintEnd_toStartOf="@+id/mark"
                 app:layout_constraintStart_toEndOf="@+id/photoPreviewLayout"
                 app:layout_constraintTop_toBottomOf="@+id/jobTitle"
+                tools:ignore="TextContrastCheck"
                 tools:text="@string/company_name" />
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -131,18 +135,19 @@
                 android:layout_marginEnd="5dp"
                 android:drawableStart="@drawable/ic_location"
                 android:drawablePadding="5dp"
-                android:drawableTint="@color/gray_300"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
                 android:ellipsize="end"
                 android:fontFamily="@font/book"
                 android:gravity="center_vertical"
                 android:singleLine="true"
                 android:text="@{job.candidate_required_location}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
                 android:textColor="@color/gray_300"
                 android:textSize="12sp"
+                app:drawableTint="@color/gray_300"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/photoPreviewLayout"
                 app:layout_constraintTop_toBottomOf="@+id/companyName"
+                tools:ignore="TextContrastCheck"
                 tools:text="@string/location" />
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -161,9 +166,10 @@
                 android:singleLine="true"
                 android:text="@{job.job_type}"
                 android:textColor="@color/green_200"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 app:layout_constraintStart_toEndOf="@+id/photoPreviewLayout"
                 app:layout_constraintTop_toBottomOf="@+id/location"
+                tools:ignore="TextContrastCheck"
                 tools:text="@string/job_type" />
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -179,10 +185,11 @@
                 android:paddingBottom="2dp"
                 android:singleLine="true"
                 android:textColor="@color/gray_300"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 app:formatDate="@{job.publication_date}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/location"
+                tools:ignore="TextContrastCheck"
                 tools:text="@string/create_at" />
 
 
