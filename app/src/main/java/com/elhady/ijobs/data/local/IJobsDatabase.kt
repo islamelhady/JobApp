@@ -8,7 +8,7 @@ import com.elhady.ijobs.data.model.Job
 /**
  * Created by islam elhady on 11-Jul-21.
  */
-@Database(entities = [Job::class], version = 1, exportSchema = false)
+@Database(entities = [Job::class], version = 2, exportSchema = false)
 abstract class IJobsDatabase : RoomDatabase() {
     abstract fun iJobDao(): IJobsDao
 }

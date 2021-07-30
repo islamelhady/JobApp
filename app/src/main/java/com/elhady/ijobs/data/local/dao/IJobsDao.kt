@@ -1,11 +1,8 @@
 package com.elhady.ijobs.data.local.dao
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.lifecycle.LiveData
+import androidx.room.*
 import com.elhady.ijobs.data.model.Job
-import kotlinx.coroutines.flow.Flow
 
 /**
  * Created by islam elhady on 11-Jul-21.
@@ -14,9 +11,18 @@ import kotlinx.coroutines.flow.Flow
 interface IJobsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun addJob(posts: List<Job>)
+    suspend fun addJob(job: Job)
+
+    @Query("update job set isFavorite = 1 where id = :jobId")
+    fun addToFavorites(jobId: Int): Int
+
+    @Query("update job set isFavorite = 0 where id = :jobId")
+    fun removeFromFavorites(jobId: Int): Int
+
+    @Query("select * from job where isFavorite = 1 ")
+    fun getAllFavorites(): LiveData<List<Job>>
 
     @Query("SELECT * FROM job")
-    fun getAllJobs(): Flow<List<Job>>
+    fun getAllJobs(): LiveData<List<Job>>
 
 }

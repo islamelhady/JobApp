@@ -33,7 +33,7 @@ val networkModule = module {
             .create(ApiService::class.java)
     }
     single {
-        IjobRepository(get())
+        IjobRepository(get(), get())
     }
 }
 

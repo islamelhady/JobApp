@@ -31,7 +31,6 @@ class IjobAdapter(val callback: JobClick) :
 
         fun bind(listener: JobClick, job: Job) {
             viewDataBinding.job = job
-            viewDataBinding.cardview = viewDataBinding.itemContainer
             viewDataBinding.jobclick = listener
             viewDataBinding.executePendingBindings()
         }
@@ -57,6 +56,11 @@ class IjobAdapter(val callback: JobClick) :
     }
 }
 
-class JobClick(val block: (Job) -> Unit) {
-    fun onClick(job: Job) = block(job)
+class JobClick(val block: (Job, Int) -> Unit) {
+    /**
+     * Called when a item is clicked
+     * @param job the job that was clicked
+     */
+    fun onClick(item: Job, version: Int) = block(item, version)
+    fun onFavoriteClick(item: Job, version: Int) = block(item, version)
 }

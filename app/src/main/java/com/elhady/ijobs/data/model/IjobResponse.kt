@@ -24,11 +24,11 @@ data class Job(
     val company_logo_url: String?= null,
     val company_name: String?= null,
     val description: String?= null,
-    @PrimaryKey val id: Int?= 0,
+    @PrimaryKey val id: Int= 0,
     val job_type: String?= null,
     val publication_date: String?= null,
     val salary: String?= null,
     val title: String?= null,
     val url: String?= null,
-    val is_mark: Int?= 0
+    var isFavorite: Boolean = false
 ): Parcelable

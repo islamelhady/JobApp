@@ -73,11 +73,11 @@ class ListJobsFragment : Fragment() {
 
 
     private fun setupAdapter() {
-        adapter = IjobAdapter(JobClick { it ->
-            val toDetailsFragment = it.let {
-                ListJobsFragmentDirections.actionListJobsFragmentToDetailsJobsFragment(it)
+        adapter = IjobAdapter(JobClick { it, version ->
+            when(version){
+                0 -> findNavController().navigate(ListJobsFragmentDirections.actionListJobsFragmentToDetailsJobsFragment(it))
+                1 -> viewModel.toggleFavorites(it)
             }
-            findNavController().navigate(toDetailsFragment)
         })
         // Sets the adapter of the RecyclerView
         binding.recyclerView.adapter = adapter
@@ -116,8 +116,8 @@ class ListJobsFragment : Fragment() {
     /**
      * Navigate to the search screen to search the jobs .
      */
-    fun goToSearchJobs() {
-//        findNavController().navigate(R.id.action_listJobsFragment_to_searchFragment)
+    fun goToFavourite() {
+        findNavController().navigate(R.id.action_listJobsFragment_to_favouriteFragment)
     }
 
     /**

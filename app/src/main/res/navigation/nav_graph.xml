@@ -24,6 +24,9 @@
         <action
             android:id="@+id/action_listJobsFragment_to_detailsJobsFragment"
             app:destination="@id/detailsJobsFragment" />
+        <action
+            android:id="@+id/action_listJobsFragment_to_favouriteFragment"
+            app:destination="@id/favouriteFragment" />
     </fragment>
 
     <fragment
@@ -47,4 +50,9 @@
             android:name="job"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/favouriteFragment"
+        android:name="com.elhady.ijobs.ui.view.favourite.FavouriteFragment"
+        android:label="favourite_fragment"
+        tools:layout="@layout/favourite_fragment" />
 </navigation>

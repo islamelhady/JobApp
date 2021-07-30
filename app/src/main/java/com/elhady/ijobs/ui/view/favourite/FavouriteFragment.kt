@@ -1,32 +1,56 @@
 package com.elhady.ijobs.ui.view.favourite
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.elhady.ijobs.R
+import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
+import com.elhady.ijobs.databinding.FavouriteFragmentBinding
+import com.elhady.ijobs.ui.adapter.IjobAdapter
+import com.elhady.ijobs.ui.adapter.JobClick
+import com.elhady.ijobs.ui.view.home.ListJobsFragmentDirections
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class FavouriteFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = FavouriteFragment()
-    }
-
-    private lateinit var viewModel: FavouriteViewModel
+    private lateinit var binding: FavouriteFragmentBinding
+    private val viewModel: FavouriteViewModel by viewModel()
+    private var adapter: IjobAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.favourite_fragment, container, false)
+        binding = FavouriteFragmentBinding.inflate(inflater)
+
+        setupAdapter()
+        setupObservers()
+
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(FavouriteViewModel::class.java)
-        // TODO: Use the ViewModel
+    private fun setupObservers() {
+        viewModel.favoriteJobList.observe(viewLifecycleOwner, Observer {
+            adapter?.submitList(it)
+        })
+    }
+
+    private fun setupAdapter() {
+        adapter = IjobAdapter(JobClick { it, version ->
+            when(version){
+                0 -> findNavController().navigate(ListJobsFragmentDirections.actionListJobsFragmentToDetailsJobsFragment(it))
+                1 -> viewModel.toggleFavorites(it)
+            }
+        })
+
+        binding.favRecyclerView.adapter = adapter
+        postponeEnterTransition()
+        binding.favRecyclerView.viewTreeObserver.addOnPreDrawListener {
+            startPostponedEnterTransition()
+            true
+        }
     }
 
 }
