@@ -24,189 +24,176 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
         android:layout_marginEnd="10dp"
-        android:onClick="@{() -> jobclick.onClick(job)}"
-        android:clickable="true"
-        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:background="@color/blue_200"
+        app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="10dp"
-        app:cardElevation="0dp"
-        app:strokeWidth="1dp">
+        app:cardElevation="4dp">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:background="?attr/selectableItemBackground"
-            android:orientation="vertical">
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="@{() -> jobclick.onClick(job)}"
+            android:foreground="?attr/selectableItemBackground"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="9dp"
+            android:padding="4dp">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:layout_marginBottom="9dp"
-                android:padding="4dp">
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/photoPreviewLayout"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_margin="5dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:strokeColor="@color/gray_200"
+                app:strokeWidth="1dp"
+                tools:src="@drawable/ic_photo">
 
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/photoPreviewLayout"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginStart="6dp"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="8dp"
-                    app:strokeWidth="0.5dp">
-
-                    <ImageView
-                        android:id="@+id/photoPreview"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="5dp"
-                        android:contentDescription="@string/app_name"
-                        android:scaleType="centerInside"
-                        app:jobSrc="@{job.company_logo_url}"
-                        tools:src="@drawable/ic_business_center" />
-
-                </com.google.android.material.card.MaterialCardView>
-
-                <LinearLayout
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/photoPreview"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/photoPreviewLayout"
-                    android:orientation="vertical">
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="fitXY"
+                    app:jobSrc="@{job.company_logo_url}"
+                    tools:ignore="ImageContrastCheck"
+                    tools:src="@drawable/banner" />
 
-                    <TextView
-                        android:id="@+id/companyName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginBottom="3dp"
-                        android:ellipsize="end"
-                        android:fontFamily="@font/bold"
-                        android:maxLines="2"
-                        android:text="@{job.title}"
-                        android:textColor="@color/gray_500"
-                        android:textSize="18sp"
-                        android:layout_marginEnd="35dp"
-                        tools:text="Job Title" />
+            </com.google.android.material.card.MaterialCardView>
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/jobTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/bold"
+                android:maxLines="2"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                android:text="@{job.title}"
+                android:textColor="@color/gray_500"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toStartOf="@+id/mark"
+                app:layout_constraintStart_toEndOf="@+id/photoPreviewLayout"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/job_title" />
 
-                        <ImageView
-                            android:id="@+id/iconCompany"
-                            android:layout_width="15dp"
-                            android:layout_height="16dp"
-                            android:layout_marginEnd="5dp"
-                            android:contentDescription="@string/app_name"
-                            android:src="@drawable/ic_company"
-                            app:tint="@color/gray_300" />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/mark"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/ic_mark"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/gray_200"
+                tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck,TouchTargetSizeCheck" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/companyName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:drawableStart="@drawable/ic_company"
+                android:drawablePadding="5dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/book"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:text="@{job.company_name}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                android:textColor="@color/gray_300"
+                android:textSize="12sp"
+                app:drawableTint="@color/gray_300"
+                app:layout_constraintEnd_toStartOf="@+id/mark"
+                app:layout_constraintStart_toEndOf="@+id/photoPreviewLayout"
+                app:layout_constraintTop_toBottomOf="@+id/jobTitle"
+                tools:ignore="TextContrastCheck"
+                tools:text="@string/company_name" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/location"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:drawableStart="@drawable/ic_location"
+                android:drawablePadding="5dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/book"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:text="@{job.candidate_required_location}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                android:textColor="@color/gray_300"
+                android:textSize="12sp"
+                app:drawableTint="@color/gray_300"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/photoPreviewLayout"
+                app:layout_constraintTop_toBottomOf="@+id/companyName"
+                tools:ignore="TextContrastCheck"
+                tools:text="@string/location" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/jobType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_job_type"
+                android:ellipsize="end"
+                android:fontFamily="@font/book"
+                android:paddingStart="6dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="6dp"
+                android:paddingBottom="2dp"
+                android:singleLine="true"
+                android:text="@{job.job_type}"
+                android:textColor="@color/green_200"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@+id/photoPreviewLayout"
+                app:layout_constraintTop_toBottomOf="@+id/location"
+                tools:ignore="TextContrastCheck"
+                tools:text="@string/job_type" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/book"
+                android:paddingStart="6dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="6dp"
+                android:paddingBottom="2dp"
+                android:singleLine="true"
+                android:textColor="@color/gray_300"
+                android:textSize="12sp"
+                app:formatDate="@{job.publication_date}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/location"
+                tools:ignore="TextContrastCheck"
+                tools:text="@string/create_at" />
 
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_toEndOf="@id/iconCompany"
-                            android:ellipsize="end"
-                            android:fontFamily="@font/book"
-                            android:singleLine="true"
-                            android:text="@{job.company_name}"
-                            android:textColor="@color/gray_300"
-                            android:textSize="12sp"
-                            tools:text="Company Name" />
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp">
-
-                        <ImageView
-                            android:id="@+id/iconLocation"
-                            android:layout_width="15dp"
-                            android:layout_height="16dp"
-                            android:layout_marginEnd="5dp"
-                            android:contentDescription="@string/app_name"
-                            android:src="@drawable/ic_location"
-                            app:tint="@color/gray_300" />
-
-
-                        <TextView
-                            android:id="@+id/jobTitle"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_toEndOf="@id/iconLocation"
-                            android:ellipsize="end"
-                            android:fontFamily="@font/book"
-                            android:singleLine="true"
-                            android:text="@{job.candidate_required_location}"
-                            android:textColor="@color/gray_300"
-                            android:textSize="12sp"
-                            tools:text="Location" />
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="4dp">
-
-                        <TextView
-                            android:id="@+id/jobType"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/bg_job_type"
-                            android:ellipsize="end"
-                            android:fontFamily="@font/book"
-                            android:paddingStart="6dp"
-                            android:paddingTop="2dp"
-                            android:paddingEnd="6dp"
-                            android:paddingBottom="2dp"
-                            android:singleLine="true"
-                            android:text="@{job.job_type}"
-                            android:textColor="@color/green_200"
-                            android:textSize="10sp"
-                            tools:text="Job Type" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:ellipsize="end"
-                            android:fontFamily="@font/book"
-                            android:paddingStart="6dp"
-                            android:paddingTop="2dp"
-                            android:paddingEnd="6dp"
-                            android:paddingBottom="2dp"
-                            android:singleLine="true"
-                            android:text="@{job.publication_date}"
-                            android:textColor="@color/gray_300"
-                            android:textSize="10sp"
-                            tools:text="Create at" />
-
-                    </RelativeLayout>
-
-                </LinearLayout>
-
-                <ImageView
-                    android:id="@+id/mark"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:layout_width="30dp"
-                    android:layout_height="40dp"
-                    android:layout_alignParentEnd="true"
-                    android:src="@{job.is_mark == 1 ? @drawable/ic_marked : @drawable/ic_mark}"
-                    android:padding="3dp"
-                    app:tint="@color/gray_200"/>
-
-            </RelativeLayout>
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>
 </layout>

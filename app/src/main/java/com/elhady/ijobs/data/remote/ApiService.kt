@@ -12,9 +12,6 @@ interface ApiService {
     @GET("remote-jobs")
     suspend fun getAllJobs(@Query("limit") limit: String): Response<RemoteJob>
 
-    @GET("remote-jobs")
-    suspend fun searchJobs(@Query("search") search: String): Response<RemoteJob>
-
 
     companion object{
         const val BASE_URL = "https://remotive.io/api/"

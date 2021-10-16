@@ -21,20 +21,20 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:elevation="0dp"
-            app:popupTheme="@style/Theme.IJobs.Toolbar">
+            app:popupTheme="@style/Theme.Toolbar">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:theme="@style/Theme.IJobs.Toolbar"
+                android:theme="@style/Theme.Toolbar"
                 app:elevation="8dp"
-                app:popupTheme="@style/Theme.IJobs.Toolbar"
+                app:popupTheme="@style/Theme.Toolbar"
                 app:titleTextColor="@color/white" />
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/bg_rounded_top"
@@ -44,11 +44,14 @@
                 android:id="@+id/applyJob"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:loadUrl="@{urlJob}"
-                android:layout_marginTop="20dp" />
+                android:layout_marginTop="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:loadUrl="@{urlJob}" />
 
 
-        </RelativeLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
