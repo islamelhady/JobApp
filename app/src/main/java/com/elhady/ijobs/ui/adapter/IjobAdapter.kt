@@ -43,7 +43,6 @@ class IjobAdapter(val callback: JobClick) :
                 return JobViewHolder(binding)
             }
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): JobViewHolder {
