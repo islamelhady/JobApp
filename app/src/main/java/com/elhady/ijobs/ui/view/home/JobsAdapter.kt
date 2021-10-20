@@ -1,4 +1,4 @@
-package com.elhady.ijobs.ui.adapter
+package com.elhady.ijobs.ui.view.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,12 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.elhady.ijobs.data.model.Job
 import com.elhady.ijobs.databinding.ItemJobBinding
 
-/**
- * Created by islam elhady on 22-Mar-21.
- */
-class IjobAdapter(val callback: JobClick) :
-    ListAdapter<Job, IjobAdapter.JobViewHolder>(DiffCallback) {
-
+class JobsAdapter(private val callBack: JobItemClick) :
+    ListAdapter<Job, JobsAdapter.JobsViewHolder>(DiffCallback) {
 
     companion object DiffCallback : DiffUtil.ItemCallback<Job>() {
         override fun areItemsTheSame(oldItem: Job, newItem: Job): Boolean {
@@ -25,11 +21,9 @@ class IjobAdapter(val callback: JobClick) :
         }
     }
 
-
-    class JobViewHolder(val viewDataBinding: ItemJobBinding) :
+    class JobsViewHolder(val viewDataBinding: ItemJobBinding) :
         RecyclerView.ViewHolder(viewDataBinding.root) {
-
-        fun bind(listener: JobClick, job: Job) {
+        fun bind(listener: JobItemClick, job: Job) {
             viewDataBinding.job = job
             viewDataBinding.cardview = viewDataBinding.itemContainer
             viewDataBinding.jobclick = listener
@@ -37,25 +31,25 @@ class IjobAdapter(val callback: JobClick) :
         }
 
         companion object {
-            fun from(parent: ViewGroup): JobViewHolder {
+            fun from(parent: ViewGroup): JobsViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding = ItemJobBinding.inflate(layoutInflater, parent, false)
-                return JobViewHolder(binding)
+                return JobsViewHolder(binding)
             }
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): JobViewHolder {
-        return JobViewHolder.from(parent)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): JobsViewHolder {
+        return JobsViewHolder.from(parent)
     }
 
-    override fun onBindViewHolder(holder: JobViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: JobsViewHolder, position: Int) {
         holder.viewDataBinding.also {
-            holder.bind(callback, getItem(position))
+            holder.bind(callBack, getItem(position))
         }
     }
 }
 
-class JobClick(val block: (Job) -> Unit) {
+class JobItemClick(val block: (Job) -> Unit) {
     fun onClick(job: Job) = block(job)
 }

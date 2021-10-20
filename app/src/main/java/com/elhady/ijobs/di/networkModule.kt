@@ -32,9 +32,6 @@ val networkModule = module {
             .build()
             .create(ApiService::class.java)
     }
-    single {
-        IjobRepository(get())
-    }
 }
 
 fun getOkHttpClient(context: Context): OkHttpClient {

@@ -11,7 +11,7 @@
         
         <variable
             name="jobclick"
-            type="com.elhady.ijobs.ui.adapter.JobClick" />
+            type="com.elhady.ijobs.ui.view.home.JobItemClick" />
         
         <variable
             name="cardview"

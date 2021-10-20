@@ -7,12 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.elhady.ijobs.ui.view.home.IjobViewModel" />
-
-        <variable
-            name="listJobs"
-            type="com.elhady.ijobs.ui.view.home.ListJobsFragment" />
-
+            type="com.elhady.ijobs.ui.view.home.JobsViewModel" />
 
     </data>
 
@@ -71,7 +66,7 @@
                         android:text="@string/welcome"
                         android:textColor="@color/white"
                         android:textSize="16sp"
-                        app:layout_constraintEnd_toStartOf="@+id/notif"
+                        app:layout_constraintEnd_toStartOf="@+id/settings"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:ignore="TextContrastCheck" />
@@ -86,20 +81,18 @@
                         android:text="@string/find_awesome_job"
                         android:textColor="@color/white"
                         android:textSize="26sp"
-                        app:layout_constraintEnd_toStartOf="@id/notif"
+                        app:layout_constraintEnd_toStartOf="@id/settings"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/welcomeText" />
 
                     <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/notif"
-                        android:layout_width="26dp"
-                        android:layout_height="40dp"
+                        android:id="@+id/settings"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_marginTop="40dp"
                         android:layout_marginEnd="16dp"
                         android:contentDescription="@string/app_name"
-                        android:onClick="@{()-> listJobs.nightMode()}"
-                        android:paddingBottom="10dp"
-                        android:src="@drawable/ic_dark_mode"
+                        android:src="@drawable/ic_settings"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:tint="@color/white" />
@@ -112,7 +105,6 @@
                         android:layout_marginStart="26dp"
                         android:layout_marginTop="40dp"
                         android:layout_marginEnd="26dp"
-                        android:onClick="@{() -> listJobs.goToSearchJobs()}"
                         app:cardBackgroundColor="@color/blue_250"
                         app:cardCornerRadius="20dp"
                         app:cardElevation="0dp"
@@ -121,7 +113,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/secondaryText">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/conSearch"
+                            android:id="@+id/jobSearch"
                             android:layout_width="match_parent"
                             android:layout_height="60dp">
 
@@ -270,7 +262,7 @@
                 android:layout_marginTop="16dp">
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerView"
+                    android:id="@+id/jobsRV"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="5dp"

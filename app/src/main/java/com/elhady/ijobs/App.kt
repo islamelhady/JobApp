@@ -1,9 +1,7 @@
 package com.elhady.ijobs
 
 import android.app.Application
-import com.elhady.ijobs.di.networkModule
-import com.elhady.ijobs.di.persistenceModule
-import com.elhady.ijobs.di.viewModelModule
+import com.elhady.ijobs.di.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -19,6 +17,8 @@ class App: Application(){
             modules(networkModule)
             modules(viewModelModule)
             modules(persistenceModule)
+            modules(repositoryModule)
+            modules(contextProviderModule)
         }
     }
 }

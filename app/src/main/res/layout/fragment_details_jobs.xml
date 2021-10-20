@@ -163,11 +163,11 @@
                                 android:layout_marginStart="16dp"
                                 android:drawableStart="@drawable/ic_info"
                                 android:drawablePadding="5dp"
-                                android:drawableTint="@color/navy_100"
+                                android:drawableTint="@color/gray_400"
                                 android:fontFamily="@font/book"
                                 android:gravity="center_vertical"
                                 android:text="@string/job_description"
-                                android:textColor="@color/navy_100"
+                                android:textColor="@color/green_200"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
@@ -219,15 +219,15 @@
                                 android:layout_marginStart="16dp"
                                 android:drawableStart="@drawable/ic_work"
                                 android:drawablePadding="5dp"
-                                app:drawableTint="@color/navy_100"
+                                app:drawableTint="@color/green_200"
                                 android:fontFamily="@font/book"
                                 android:gravity="center_vertical"
                                 android:text="@string/company_information"
-                                android:textColor="@color/navy_100"
+                                android:textColor="@color/gray_200"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
-                                app:tint="@color/navy_100" />
+                                app:tint="@color/gray_400" />
 
 
                             <androidx.appcompat.widget.AppCompatTextView

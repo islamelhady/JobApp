@@ -15,6 +15,8 @@
         <entry key="..\:/AndroidProjects/iJobs/app/src/main/res/drawable/ic_light_mode.xml" value="0.2074074074074074" />
         <entry key="..\:/AndroidProjects/iJobs/app/src/main/res/drawable/ic_mark.xml" value="0.2045662100456621" />
         <entry key="..\:/AndroidProjects/iJobs/app/src/main/res/drawable/ic_marked.xml" value="0.2045662100456621" />
+        <entry key="..\:/AndroidProjects/iJobs/app/src/main/res/drawable/ic_settings.xml" value="0.16296296296296298" />
+        <entry key="..\:/AndroidProjects/iJobs/app/src/main/res/drawable/ic_work.xml" value="0.16296296296296298" />
         <entry key="..\:/AndroidProjects/iJobs/app/src/main/res/drawable/mode.xml" value="0.2074074074074074" />
         <entry key="..\:/AndroidProjects/iJobs/app/src/main/res/layout-v23/item_job.xml" value="0.13541666666666666" />
         <entry key="..\:/AndroidProjects/iJobs/app/src/main/res/layout/activity_main.xml" value="0.19305555555555556" />
@@ -22,16 +24,16 @@
         <entry key="..\:/AndroidProjects/iJobs/app/src/main/res/layout/details.xml" value="0.19305555555555556" />
         <entry key="..\:/AndroidProjects/iJobs/app/src/main/res/layout/favourite_fragment.xml" value="0.15827338129496402" />
         <entry key="..\:/AndroidProjects/iJobs/app/src/main/res/layout/fragment_apply.xml" value="0.19305555555555556" />
-        <entry key="..\:/AndroidProjects/iJobs/app/src/main/res/layout/fragment_details_jobs.xml" value="0.1" />
-        <entry key="..\:/AndroidProjects/iJobs/app/src/main/res/layout/fragment_list_jobs.xml" value="0.22" />
+        <entry key="..\:/AndroidProjects/iJobs/app/src/main/res/layout/fragment_details_jobs.xml" value="0.15" />
+        <entry key="..\:/AndroidProjects/iJobs/app/src/main/res/layout/fragment_list_jobs.xml" value="0.19305555555555556" />
         <entry key="..\:/AndroidProjects/iJobs/app/src/main/res/layout/fragment_search.xml" value="0.19305555555555556" />
         <entry key="..\:/AndroidProjects/iJobs/app/src/main/res/layout/fragment_splash.xml" value="0.2" />
         <entry key="..\:/AndroidProjects/iJobs/app/src/main/res/layout/item_job.xml" value="0.1" />
-        <entry key="..\:/AndroidProjects/iJobs/app/src/main/res/layout/item_job_marked.xml" value="0.5" />
+        <entry key="..\:/AndroidProjects/iJobs/app/src/main/res/layout/item_job_marked.xml" value="0.1" />
         <entry key="..\:/AndroidProjects/iJobs/app/src/main/res/layout/item_job_placeholder.xml" value="0.33" />
         <entry key="..\:/AndroidProjects/iJobs/app/src/main/res/layout/itemnew.xml" value="0.25" />
         <entry key="..\:/AndroidProjects/iJobs/app/src/main/res/layout/jobsss.xml" value="0.25" />
-        <entry key="..\:/AndroidProjects/iJobs/app/src/main/res/layout/loading_view.xml" value="0.19305555555555556" />
+        <entry key="..\:/AndroidProjects/iJobs/app/src/main/res/layout/loading_view.xml" value="0.1" />
         <entry key="..\:/AndroidProjects/iJobs/app/src/main/res/menu/detail_menu.xml" value="0.1" />
         <entry key="..\:/AndroidProjects/iJobs/app/src/main/res/menu/main_menu.xml" value="0.19305555555555556" />
       </map>
