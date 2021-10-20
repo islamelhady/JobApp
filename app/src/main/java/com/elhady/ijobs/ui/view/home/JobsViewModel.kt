@@ -1,5 +1,6 @@
 package com.elhady.ijobs.ui.view.home
 
+import com.elhady.ijobs.data.local.JobEntity
 import com.elhady.ijobs.ui.base.BaseViewModel
 import com.elhady.ijobs.utils.coroutines.ContextProvider
 import kotlinx.coroutines.flow.collect
@@ -9,13 +10,26 @@ import kotlinx.coroutines.flow.collect
  */
 class JobsViewModel(
     contextProvider: ContextProvider,
-    private val repository: JobsRepository
+    private val jobsRepository: JobsRepository
 ) :
     BaseViewModel(contextProvider = contextProvider) {
 
     fun getJobs() {
         launchBlock(showLoading = true) {
-            repository.getAllJobs().collect {
+            jobsRepository.getAllJobs().collect {
+            }
+        }
+    }
+
+    fun addJobToFavorite(job: JobEntity) {
+        launchBlock(showLoading = true) {
+            jobsRepository.checkItem(job).collect {
+                if (it)
+                    setState(JobsViewState.OnAddingFavoriteResponse(false))
+                else
+                    jobsRepository.addJobToFavoriteList(job).collect {
+                        setState(JobsViewState.OnAddingFavoriteResponse(true))
+                    }
             }
         }
     }

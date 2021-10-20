@@ -1,4 +1,4 @@
-package com.elhady.ijobs.ui.view.home
+package com.elhady.ijobs.ui.view.favourite
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,10 +6,14 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.elhady.ijobs.data.model.Job
-import com.elhady.ijobs.databinding.ItemJobBinding
+import com.elhady.ijobs.databinding.ItemFavoriteBinding
+import com.elhady.ijobs.ui.view.home.JobItemClick
 
-class JobsAdapter(private val callBack: JobItemClick) :
-    ListAdapter<Job, JobsAdapter.JobsViewHolder>(DiffCallback) {
+/**
+ * Created by islam elhady on 20-Oct-21.
+ */
+class FavoriteAdapter(val callback: JobItemClick) :
+    ListAdapter<Job, FavoriteAdapter.FavoriteViewHolder>(DiffCallback) {
 
     /**
      * Callback for calculating the diff between two non-null items in a list.
@@ -30,20 +34,20 @@ class JobsAdapter(private val callBack: JobItemClick) :
     /**
      * ViewHolder for Groups items. All work is done by data binding.
      */
-    class JobsViewHolder(val viewDataBinding: ItemJobBinding) :
+    class FavoriteViewHolder(val viewDataBinding: ItemFavoriteBinding) :
         RecyclerView.ViewHolder(viewDataBinding.root) {
+
         fun bind(listener: JobItemClick, job: Job) {
-            viewDataBinding.item = job
-            viewDataBinding.cardView = viewDataBinding.itemContainer
             viewDataBinding.itemClick = listener
+            viewDataBinding.item = job
             viewDataBinding.executePendingBindings()
         }
 
         companion object {
-            fun from(parent: ViewGroup): JobsViewHolder {
+            fun from(parent: ViewGroup): FavoriteViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
-                val binding = ItemJobBinding.inflate(layoutInflater, parent, false)
-                return JobsViewHolder(binding)
+                val binding = ItemFavoriteBinding.inflate(layoutInflater, parent, false)
+                return FavoriteViewHolder(binding)
             }
         }
     }
@@ -54,8 +58,8 @@ class JobsAdapter(private val callBack: JobItemClick) :
      * A ViewHolder holds a view for the [RecyclerView] as well as providing additional information
      * to the RecyclerView such as where on the screen it was last drawn during scrolling.
      */
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): JobsViewHolder {
-        return JobsViewHolder.from(parent)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteViewHolder {
+        return FavoriteViewHolder.from(parent)
     }
 
     /**
@@ -64,22 +68,9 @@ class JobsAdapter(private val callBack: JobItemClick) :
      * The ViewHolder passed may be recycled, so make sure that this sets any properties that
      * may have been set previously.
      */
-    override fun onBindViewHolder(holder: JobsViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: FavoriteViewHolder, position: Int) {
         holder.viewDataBinding.also {
-            holder.bind(callBack, getItem(position))
+            holder.bind(callback, getItem(position))
         }
     }
-}
-
-/**
- * Click listener for Groups. By giving the block a name it helps a reader understand what it does.
- */
-class JobItemClick(val block: (Job, Int) -> Unit) {
-    /**
-     * Called when a job is clicked
-     * @param item the job that was clicked
-     * @param version the favorite mark that was clicked
-     */
-    fun onClick(item: Job, version: Int) = block(item, version)
-    fun onFavoriteClick(item: Job, version: Int) = block(item, version)
 }

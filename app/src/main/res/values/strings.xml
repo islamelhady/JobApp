@@ -12,6 +12,7 @@
     <string name="search">What are you looking for?</string>
     <string name="no_data_found">No Data Found</string>
     <string name="job_title">Job Title</string>
+    <string name="job_deleted_msg">Job is deleted from Favorite</string>
     <string name="company_name">Company Name</string>
     <string name="location">Location</string>
     <string name="job_type">Job Type</string>

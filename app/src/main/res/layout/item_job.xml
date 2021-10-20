@@ -6,15 +6,15 @@
     <data>
 
         <variable
-            name="job"
+            name="item"
             type="com.elhady.ijobs.data.model.Job" />
-        
+
         <variable
-            name="jobclick"
+            name="itemClick"
             type="com.elhady.ijobs.ui.view.home.JobItemClick" />
-        
+
         <variable
-            name="cardview"
+            name="cardView"
             type="com.google.android.material.card.MaterialCardView" />
 
     </data>
@@ -25,10 +25,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="4dp"
-        android:layout_marginBottom="4dp"
         android:layout_marginEnd="10dp"
-        android:foreground="?attr/selectableItemBackground"
+        android:layout_marginBottom="4dp"
         android:background="@color/blue_200"
+        android:foreground="?attr/selectableItemBackground"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="10dp"
         app:cardElevation="4dp">
@@ -36,12 +36,12 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:clickable="true"
-            android:focusable="true"
-            android:onClick="@{() -> jobclick.onClick(job)}"
-            android:foreground="?attr/selectableItemBackground"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="9dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:onClick="@{() -> itemClick.onClick(item,0)}"
             android:padding="4dp">
 
             <com.google.android.material.card.MaterialCardView
@@ -63,7 +63,7 @@
                     android:layout_height="match_parent"
                     android:contentDescription="@string/app_name"
                     android:scaleType="fitXY"
-                    app:jobSrc="@{job.company_logo_url}"
+                    app:jobSrc="@{item.company_logo_url}"
                     tools:ignore="ImageContrastCheck"
                     tools:src="@drawable/banner" />
 
@@ -79,8 +79,8 @@
                 android:ellipsize="end"
                 android:fontFamily="@font/bold"
                 android:maxLines="2"
+                android:text="@{item.title}"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
-                android:text="@{job.title}"
                 android:textColor="@color/gray_500"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toStartOf="@+id/mark"
@@ -96,6 +96,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
                 android:focusable="true"
+                android:onClick="@{() -> itemClick.onFavoriteClick(item,1)}"
                 android:src="@drawable/ic_mark"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -115,7 +116,7 @@
                 android:fontFamily="@font/book"
                 android:gravity="center_vertical"
                 android:singleLine="true"
-                android:text="@{job.company_name}"
+                android:text="@{item.company_name}"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
                 android:textColor="@color/gray_300"
                 android:textSize="12sp"
@@ -139,7 +140,7 @@
                 android:fontFamily="@font/book"
                 android:gravity="center_vertical"
                 android:singleLine="true"
-                android:text="@{job.candidate_required_location}"
+                android:text="@{item.candidate_required_location}"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
                 android:textColor="@color/gray_300"
                 android:textSize="12sp"
@@ -164,7 +165,7 @@
                 android:paddingEnd="6dp"
                 android:paddingBottom="2dp"
                 android:singleLine="true"
-                android:text="@{job.job_type}"
+                android:text="@{item.job_type}"
                 android:textColor="@color/green_200"
                 android:textSize="12sp"
                 app:layout_constraintStart_toEndOf="@+id/photoPreviewLayout"
@@ -186,7 +187,7 @@
                 android:singleLine="true"
                 android:textColor="@color/gray_300"
                 android:textSize="12sp"
-                app:formatDate="@{job.publication_date}"
+                app:formatDate="@{item.publication_date}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/location"
                 tools:ignore="TextContrastCheck"

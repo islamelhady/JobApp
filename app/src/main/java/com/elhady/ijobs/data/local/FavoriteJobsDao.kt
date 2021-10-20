@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.Flow
 interface FavoriteJobsDao {
 
     @Query("SELECT EXISTS (SELECT 1 FROM JobEntity WHERE id = :id)")
-    suspend fun exists(id: Int): Boolean
+    suspend fun exists(id: Int?): Boolean
 
     @Query("select * from JobEntity")
     fun getJobs(): Flow<List<JobEntity>>

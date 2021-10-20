@@ -8,4 +8,5 @@ import com.elhady.ijobs.ui.base.ViewState
  */
 sealed class JobsViewState : ViewState() {
     data class OnJobsResponse(val data: List<Job>?) : Loaded<List<Job>?>(data)
+    data class OnAddingFavoriteResponse(val data: Boolean?) : Loaded<Boolean?>(data)
 }

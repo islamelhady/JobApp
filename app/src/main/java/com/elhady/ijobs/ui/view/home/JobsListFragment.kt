@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.elhady.ijobs.R
+import com.elhady.ijobs.data.local.toFavouriteJobsEntity
 import com.elhady.ijobs.data.model.Job
 import com.elhady.ijobs.databinding.FragmentListJobsBinding
 import com.elhady.ijobs.ui.base.BaseFragmentWithBusiness
@@ -75,11 +76,13 @@ class JobsListFragment :
     }
 
     private fun setupAdapter() {
-        jobsAdapter = JobsAdapter(JobItemClick { it ->
-            val toDetailsFragment = it.let {
-                JobsListFragmentDirections.actionListJobsFragmentToDetailsJobsFragment(it)
+
+        jobsAdapter = JobsAdapter(JobItemClick { it, version ->
+            when (version) {
+                0 -> findNavController().navigate(
+                    JobsListFragmentDirections.actionListJobsFragmentToDetailsJobsFragment(it))
+                1 -> viewModel.addJobToFavorite(it.toFavouriteJobsEntity())
             }
-            findNavController().navigate(toDetailsFragment)
         })
         // Sets the adapter of the RecyclerView
         jobsRV.adapter = jobsAdapter
