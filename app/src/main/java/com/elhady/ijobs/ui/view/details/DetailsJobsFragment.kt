@@ -13,40 +13,29 @@ import com.elhady.ijobs.ui.view.MainActivity
 import com.elhady.ijobs.R
 import com.elhady.ijobs.data.model.Job
 import com.elhady.ijobs.databinding.FragmentDetailsJobsBinding
+import com.elhady.ijobs.ui.base.BaseFragment
 
 /**
  * Created by islam elhady on 22-Mar-21.
  */
-class DetailsJobsFragment : Fragment() {
+class DetailsJobsFragment :
+    BaseFragment<FragmentDetailsJobsBinding>(R.layout.fragment_details_jobs) {
 
-
-    private lateinit var binding: FragmentDetailsJobsBinding
     private val args: DetailsJobsFragmentArgs by navArgs()
     private var jobVal: Job? = null
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentDetailsJobsBinding.inflate(inflater)
-        // recieved argums
-        jobVal = args.job
-        setupToolbar()
-        return binding.root
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.apply {
+        binder.apply {
             ijobs = jobVal
             detailsJobs = this@DetailsJobsFragment
         }
     }
 
-    private fun setupToolbar(){
-        if(requireActivity() is MainActivity){
-            (activity as AppCompatActivity?)!!.setSupportActionBar(binding.toolbar)
+    private fun setupToolbar() {
+        if (requireActivity() is MainActivity) {
+            (activity as AppCompatActivity?)!!.setSupportActionBar(binder.toolbar)
             (activity as AppCompatActivity?)!!.supportActionBar!!.setDisplayHomeAsUpEnabled(true)
             (activity as AppCompatActivity?)!!.supportActionBar!!.setTitle(jobVal?.title)
         }
@@ -55,15 +44,15 @@ class DetailsJobsFragment : Fragment() {
     /**
      * Navigate to the apply screen to apply job .
      */
-    fun goToApplyJob(){
+    fun goToApplyJob() {
 
-        val bundle = bundleOf( "URL" to args.job.url , "TITLE" to args.job.title)
+        val bundle = bundleOf("URL" to args.job.url, "TITLE" to args.job.title)
         findNavController().navigate(R.id.action_detailsJobsFragment_to_applyFragment, bundle)
     }
 
     // clear views references to fix memory leaks
     override fun onDestroyView() {
         super.onDestroyView()
-        binding.unbind()
+        binder.unbind()
     }
 }

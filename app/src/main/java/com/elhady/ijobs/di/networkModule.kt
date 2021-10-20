@@ -3,7 +3,6 @@ package com.elhady.ijobs.di
 import android.content.Context
 import com.elhady.ijobs.data.remote.ApiService
 import com.elhady.ijobs.data.remote.ApiService.Companion.BASE_URL
-import com.elhady.ijobs.data.repository.IjobRepository
 import com.elhady.ijobs.utils.isNetworkAvailable
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
