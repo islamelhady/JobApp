@@ -1,7 +1,6 @@
 package com.elhady.ijobs.ui.view.home
 
 import android.view.View
-import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.elhady.ijobs.R
@@ -35,7 +34,7 @@ class JobsListFragment :
 
         jobSearch.setOnClickListener {
             hide(textSearch, imgSearch)
-            show(backImage, searchResultsET)
+            show(favBackImage, searchResultsET)
         }
 
         swipeRefresh.apply {
@@ -45,9 +44,9 @@ class JobsListFragment :
 
         shimmer.visibility = View.INVISIBLE
 
-        backImage.setOnClickListener {
+        favBackImage.setOnClickListener {
             show(textSearch, imgSearch)
-            hide(backImage, searchResultsET)
+            hide(favBackImage, searchResultsET)
             searchResultsET.clear()
         }
 

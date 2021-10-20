@@ -9,7 +9,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import com.elhady.ijobs.utils.State
 import kotlinx.coroutines.flow.collect
 
 /**

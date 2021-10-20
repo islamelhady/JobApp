@@ -14,16 +14,18 @@
             type="com.elhady.ijobs.ui.view.details.DetailsJobsFragment" />
     </data>
 
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/blue_200"
+        android:background="@color/colorPrimary"
         android:fitsSystemWindows="true">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
             app:elevation="0dp"
             app:popupTheme="@style/Theme.Toolbar">
 
@@ -44,19 +46,22 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/bg_rounded_top"
+            android:fillViewport="true"
+            android:fitsSystemWindows="true"
+            app:layout_anchor="@id/appbar"
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
             <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="15dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent">
 
                     <com.google.android.material.card.MaterialCardView
                         android:id="@+id/cardImage"
@@ -181,8 +186,8 @@
                                 android:fontFamily="@font/book"
                                 android:gravity="center_vertical"
                                 android:textColor="@color/gray_400"
-                                android:textSize="12sp"
                                 android:textIsSelectable="true"
+                                android:textSize="12sp"
                                 app:descriptionHtml="@{ijobs.description}"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
@@ -219,11 +224,11 @@
                                 android:layout_marginStart="16dp"
                                 android:drawableStart="@drawable/ic_work"
                                 android:drawablePadding="5dp"
-                                app:drawableTint="@color/green_200"
                                 android:fontFamily="@font/book"
                                 android:gravity="center_vertical"
                                 android:text="@string/company_information"
                                 android:textColor="@color/gray_200"
+                                app:drawableTint="@color/green_200"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
@@ -309,19 +314,24 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@drawable/bg_shadow_bottom_to_top_transparent"
+            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior" />
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/conBottom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
             app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/photoPreviewLayout"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:layout_margin="15dp"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -344,6 +354,7 @@
                 android:id="@+id/applyLayout"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
+                android:layout_margin="15dp"
                 android:layout_marginStart="5dp"
                 android:onClick="@{()-> detailsJobs.goToApplyJob()}"
                 app:cardBackgroundColor="@color/green_300"
@@ -360,16 +371,15 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:contentDescription="@string/app_name"
-                    android:drawableEnd="@drawable/ic_info"
+                    android:drawableStart="@drawable/ic_info"
                     android:drawablePadding="5dp"
                     android:drawableTint="@color/white"
+                    android:fontFamily="@font/bold"
                     android:text="@string/how_to_apply"
                     android:textColor="@color/white"
-                    android:textSize="20sp"
                     tools:targetApi="m" />
 
             </com.google.android.material.card.MaterialCardView>
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -13,6 +13,7 @@ import com.elhady.ijobs.ui.view.home.JobItemClick
 import com.elhady.ijobs.ui.view.home.JobsListFragmentDirections
 import com.elhady.ijobs.utils.makeToast
 import kotlinx.android.synthetic.main.favourite_fragment.*
+import kotlinx.android.synthetic.main.toolbar_favorite.view.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
 /**
@@ -38,6 +39,7 @@ class FavouriteFragment :
     override fun setup() {
         setupAdapter()
         viewModel.getFavoriteJobs()
+        favoriteToolbar.favBackImage.setOnClickListener { back() }
     }
 
     private fun setupAdapter() {
